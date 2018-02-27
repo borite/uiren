@@ -1,0 +1,302 @@
+﻿body
+{
+    background-color:#f8f8f8;
+}
+
+
+#work_show{
+	width: 1200px;
+	background-color: #fff;
+	margin: 25px auto;
+	padding-top: 40px;
+	padding-bottom: 30px;
+}
+
+.work-title{
+	font-size: 22px;
+	text-align: center;
+	font-weight: normal;
+}
+
+.work-img{
+	display: block;
+	margin: 20px auto;
+}
+
+#comment{
+	width: 1200px;
+	padding-bottom: 20px;
+	margin: 20px auto;
+}
+
+.comment-list{
+	width: 820px;
+	float: left;
+	background-color: #fff;
+	padding-bottom: 65px;
+}
+
+.c-item{
+	margin-top: 40px;
+}
+
+.rpt-level2{
+	margin-left: 56px;
+	margin-top: 20px;
+}
+
+.comment-tit{
+	display: inline-block;
+	padding: 20px 10px;
+	border-top: 4px solid #6B5BF7;
+	margin-left: 50px;
+	text-align: center;
+}
+
+
+.c-list{
+	width: 680px;
+	margin: 0 auto;
+	list-style: none;
+	padding-bottom: 50px;
+}
+
+
+.comment-user{
+	height: 56px;
+}
+
+.comment-user a{
+	text-decoration: none;
+	color: #000;
+}
+
+
+.avatar-href{
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.avatar-href img{
+	display: block; width: 56px; height: 56px; border-radius: 50%;
+}
+
+.name-href{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.pubtime{
+	font-size: 12px;
+	color: #9d9d9d;
+	vertical-align:middle;
+}
+
+
+.split-line{
+	display: block;
+	width: 680px;
+	height: 4px;
+	background-image: url(../images/splitline.png);	
+	margin-top: 35px;
+}
+
+.comment-text{
+	margin-left: 72px;
+}
+
+.comment-man{
+	width: 350px;
+	padding: 30px;
+	box-sizing: border-box;
+	background-color: #fff;
+	float: right;
+}
+
+
+.comment-man .avatar{
+	display: block;
+	border-radius: 50%;
+	float: left;
+}
+
+.comment-man .man-info{
+	float: left;
+	height: 80px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.man-name{
+	font-size: 22px;
+	color: #4d4d4d;
+	font-weight: normal;
+	text-decoration: none;
+}
+
+.pub-time{
+	font-size: 14px;
+	font-weight: normal;
+	color: #4d4d4d;
+}
+
+.comment-man .btn-wrap{
+	width: 100%;
+	height: 50px;
+	clear: both;
+	margin-top: 20px;
+	display: flex;
+	justify-content: space-between;
+	
+}
+
+.comment-man .btn-wrap .guanzhu{
+	width: 125px;
+	height: 50px;
+	background-color: #6c5bf8;
+	color:#fff;
+	font-size: 16px;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.comment-man .btn-wrap .guanzhu:hover{
+	background-color: #8273fe;
+}
+
+.comment-man .btn-wrap .sixin{
+	width: 123px;
+	height: 48px;
+	font-size: 16px;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 4px;
+	border: 1px solid #6c5bf8;
+	color: #6c5bf8;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.comment-man .btn-wrap .sixin:hover{
+	border-color: #3f2ae6;
+	color: #3f2ae6;
+}
+
+.rpt-btn{
+	display: inline-block;
+	color: #9d9d9d;
+	font-size: 14px;
+	line-height: 34px;
+	cursor: pointer;
+}
+
+.btn-more{
+	width: 680px;
+	height: 50px;
+	border-radius: 4px;
+	background-color: #f8f8f8;
+	text-align: center;
+	line-height: 50px;
+	margin: 0 auto;
+	cursor: pointer;
+	transition: background-color 0.4s;
+}
+
+.btn-more:hover{
+	background-color: #6c5bf8;
+	color: #fff;
+}
+
+
+.comment-area{
+	width: 680px;	
+	margin: 50px auto 0px auto;
+}
+
+#iptcomm{
+	display: block;
+	width: 660px;
+	height: 165px;
+	background-color: rgb(246, 246, 246);
+	resize: none;
+	border: none;
+	outline: none;
+	padding: 10px
+}
+
+.ipt-comm-info{
+	display: block;
+	width: 100%;
+	height: 50px;
+	margin-top: 30px;	
+}
+
+.ipt-comm-info #num_indicate{
+	font-size: 12px;
+	color: #9e9e9e;
+	float: left;
+}
+
+
+.btn-delcomm{
+   float: right;
+   font-size: 12px;
+   color: #9d9d9d;
+   cursor: pointer;
+   display: inline-block;
+   margin-top: 2px;
+}
+
+.btn-delcomm:hover{
+  color: #6c5bf8;
+}
+
+
+/*.ipt-comm-info #btn_fabiao{
+	width: 125px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	background-color: #6c5bf8;
+	color: #fff;
+	font-size: 16px;
+}*/
+
+#btn_replay{
+	margin-right: 20px;
+	display: none;
+}
+
+.ipt-comm-info .btn-pub{
+	width: 125px;
+	height: 48px;
+	text-align: center;
+	line-height: 48px;
+	background-color: #6c5bf8;
+	color: #fff;
+	font-size: 16px;
+	float: right;
+}
+
+.ipt-comm-info .btn-pub:hover{
+	background-color: #8273fe;
+	cursor: pointer;
+}
+
+
+.btn-reply{
+	display: inline-block;
+	color: #9d9d9d;
+	margin-top: 15px;
+	margin-left: 72px;
+	font-size: 14px;
+	width: 40px;
+	height: 20px;
+	text-decoration: none;
+}
+

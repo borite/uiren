@@ -1,0 +1,126 @@
+/* CSS Document */
+
+*{
+    margin:0px;
+    padding:0px;
+}
+
+body
+{
+    font-family:'Microsoft YaHei','Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:14px;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+}
+
+#content{
+	height: 100%;
+	width: 500px;
+	margin: 0 auto;
+	display: flex;
+	align-items: center;
+}
+
+#wx_info{
+	width: 300px;
+	margin-left: 100px;
+}
+
+#wx_avatar{
+	display: block;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	margin: 0 auto
+}
+
+#wx_info button{
+	display: block;
+	width: 300px;
+	height: 50px;
+	margin-top: 40px;
+}
+
+#bind_account{
+	background-color: #6c5bf8;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+#no_bind{
+	background-color: #46BF49;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	outline: none;
+}
+
+#wx_nickname{
+	margin: 10px 0px 80px;
+	text-align: center;
+	font-weight: normal;
+	font-size: 18px;
+	
+}
+
+#user_info{
+	width: 100%;
+	display: none;
+}
+
+#user_info h2{
+	font-weight: normal;
+	font-size: 16px;
+	line-height: 40px;
+	margin: 10px 0px;
+}
+
+#user_info .info-row{
+	font-size: 14px;
+}
+
+#user_info .ipt-txt{
+	height: 40px;
+	border:1px solid #ccc;
+	line-height: 40px;
+	width:278px;
+	padding: 0 10px;
+	margin-bottom: 20px;
+	outline: none;
+}
+
+#user_info #btn_area{
+	width: 100%;
+	height: 40px;
+	
+}
+
+#user_info .ipt-btn{
+	display: block;
+	width: 100px;
+	height: 40px;
+	border: none;
+	cursor: pointer;
+	outline: none; 
+	margin: 0px;
+	float: left;
+	margin-right: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

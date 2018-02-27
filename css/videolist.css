@@ -1,0 +1,83 @@
+/* CSS Document */
+
+body{
+	background-color: #f9f9f9;
+}
+
+
+#top_ad{
+	width: 100%;
+	background-image: url(../images/video_topbg.jpg);
+	background-repeat: no-repeat;
+	background-size: 1920px 285px;
+	background-position: center 0;
+}
+
+.top_content{
+	width: 1200px;
+	margin: 0 auto;
+}
+
+#class_nav{ width: 246px; min-height: 285px;  background-color: #000; padding: 18px 0px; display: block; padding-bottom: 0px;}
+
+.nav-item{
+	padding: 12px 18px;
+	width: 100%;
+	margin-bottom: 12px;
+	box-sizing: border-box;
+}
+
+#class_nav .nav-item .nav-title{ font-size: 16px; color: #fff;font-weight: normal; text-decoration: none;}
+
+#class_nav .nav-item .nav-subtitle{font-size: 14px; color: #cbcbcb;font-weight: normal; text-decoration: none; margin-right: 15px; margin-top: 10px; display: inline-block;}
+
+#class_nav .item-select{ background-color: rgba(49,49,49,0.80)}
+
+#video_list{
+	width: 1200px; margin: 80px auto 0px auto; min-height: 600px;
+}
+
+
+#video_list .video-section{
+	width: 1208px; 
+}
+
+#video_list .video-section:nth-child(2n+1) i{
+	border-left: 4px solid #FF355B;
+}
+
+#video_list .video-section:nth-child(2n) i{
+	border-left: 4px solid #36b1ff;
+}
+
+.video-item{
+	width: 288px; height: 283px; background-color: #fff; float: left; margin-right: 12px; margin-top: 12px; transition: box-shadow 0.4s; border: 1px solid rgba(246,246,246,0);
+}
+
+.video-item:hover{
+  border-color: rgba(246,246,246,1);
+  box-shadow: 0px 10px 38px 0px rgba(212, 212, 212, 0.85);
+}
+
+
+.video-item a{ display:block; text-decoration: none;}
+
+.video-item img.video-img{
+	display: block; border: none;
+}
+
+.video-item .video-info{
+	width: 290px; height: 105px; padding: 10px; box-sizing:border-box; position: relative;
+}
+
+.video-item .video-info .video-title{
+	font-size: 16px; color: #373737; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; 
+}
+
+.video-item .video-info .video-author{
+	font-size: 12px; color: #969494; margin-top: 5px; display: inline-block;
+}
+.video-item .video-info .video-price{
+	font-size: 14px; position: absolute; right: 10px; bottom: 10px; color: #19BD5E;
+}
+

@@ -1,0 +1,255 @@
+/* CSS Document */
+
+
+body{
+	background-color: #f9f9f9;
+}
+
+#imgs_loop{
+	position: relative;
+	height: 350px;
+	overflow:hidden;
+	background-color: #fff;
+}
+
+#steps{
+	width: 100%; height: 220px; 
+	background-color: #fff;
+	padding-top: 1px;
+}
+
+#steps .steps-wrap{
+	display: flex;
+	justify-content: space-between;
+	width: 1200px;
+	height: 130px;
+	margin: 50px auto 30px auto; 
+}
+
+#steps .steps-wrap .icon-wrap{
+	width: 170px; height: 130px;
+}
+
+#steps .steps-wrap .icon-wrap a{
+	display: block; 
+	background-image: url(../images/top_sprite.png);
+	background-repeat: no-repeat;
+	margin: 0px auto;
+	cursor: pointer;
+	border-top: 1px solid transparent;	
+	text-decoration: none;
+}
+
+.icon-text{
+	font-style: normal;
+	font-size: 16px;
+	color: #858585;
+	text-align: center;
+	display: block;
+	margin-top: 100px;
+}
+
+
+.icon-rules{
+	width: 60px; 
+	height: 87px;
+	background-position:-4px -3px;	
+	
+}
+
+.icon-rules:hover{
+	background-position:-4px -100px;	
+}
+
+
+.icon-start{
+	width: 72px; 
+	height: 92px;
+	background-position:-133px -3px;	
+}
+.icon-start:hover{
+	background-position:-133px -100px;	
+}
+
+.icon-nav{
+	width: 64px; height: 86px; background-position: -271px -3px;
+}
+
+.icon-nav:hover{
+	background-position: -271px -100px;
+}
+
+.icon-game{
+	width: 65px; height: 86px; background-position: -395px -3px;
+}
+.icon-game:hover{
+	background-position: -395px -100px;
+}
+
+.icon-job{
+	width: 65px; height: 86px; background-position: -505px -3px;
+}
+
+.icon-job:hover{
+	background-position: -505px -100px;
+}
+
+#conent_wrap{
+	background-color: #f9f9f9;
+	
+}
+
+.video-wrap{ margin-top: 20px; }
+
+#content .video-list{margin-top: 10px; width: 1208px; margin-left: -12px; }
+
+
+#ad_area{
+	width: 100%;
+	display: flex;
+	justify-content:space-between;
+	margin: 40px auto;
+}
+
+#ad_area a{ display: block;}
+#ad_area img{ display: block;}
+
+
+.video-item{
+	width: 288px; height: 283px; background-color: #fff; float: left; margin-left: 12px; margin-top: 12px; transition: box-shadow 0.4s; border: 1px solid rgba(246,246,246,0);
+}
+
+.video-item:hover{
+  border-color: rgba(246,246,246,1);
+  box-shadow: 0px 10px 38px 0px rgba(212, 212, 212, 0.85);
+}
+
+
+.video-item a{ display:block; text-decoration: none;}
+
+.video-item img.video-img{
+	display: block; border: none;
+}
+
+.video-item .video-info{
+	width: 290px; height: 105px; padding: 10px; box-sizing:border-box; position: relative;
+}
+
+.video-item .video-info .video-title{
+	font-size: 16px; color: #373737; text-overflow: ellipsis; white-space: nowrap; overflow: hidden; 
+}
+
+.video-item .video-info .video-author{
+	font-size: 12px; color: #969494; margin-top: 5px; display: inline-block;
+}
+.video-item .video-info .video-price{
+	font-size: 14px; position: absolute; right: 10px; bottom: 10px; color: #19BD5E;
+}
+
+#content i.video-type-tit{
+	display: block;
+	font-style: normal;
+	height: 20px;
+	line-height: 20px;
+	font-size: 18px;
+	padding-left: 15px;
+	border-left: 4px solid #36b1ff;
+}
+
+
+
+#dailyui{
+	width: 1200px;
+	margin-top: 30px;
+	margin: 65px auto 20px auto;
+}
+
+#hw_list{
+	width: 1220px;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: 40px;
+}
+
+#daily_title{
+	
+}
+
+#daily_title h2,#daily_title h3{
+  display: block;
+  font-weight: normal;
+  text-align: center;
+}
+
+.daily-main-h2{
+	font-size: 30px;
+}
+
+.daily-main-h3{
+	font-size: 18px;
+	margin-top: 20px;
+}
+
+
+.hw-cell{
+     width:230px;
+    height:275px;
+    background-color:#ffffff;
+    border: 1px solid #f6f6f6;
+	text-decoration: none;
+    margin-right:10px;
+    margin-top:15px;
+}
+.hw-cell>p{
+    font-size:12px;
+    color:#808080;
+    text-indent:12px;
+    width:230px;
+}
+.hw-info{
+    line-height:80px;
+    font-size:40px;
+    font-style:normal;
+    font-weight:500;
+}
+#hw-number{
+     font-size:40px;
+     color:rgb(60,160,255);
+}
+.hw-name{
+      font-size:16px;
+    line-height: 30px;
+	display: block;
+	color: #000;
+	text-decoration: none;
+     text-indent:12px;
+}
+.hw-date{
+    height:30px;
+    line-height:30px;
+    box-sizing:border-box;
+    padding-right:10px;
+    border-top:1px solid #f6f6f6;
+    text-align:right;
+    margin-top:20px;
+}
+.mission-teach-name{
+    text-decoration:none;
+     font-size:12px;
+    color:#808080;
+}
+
+.btn_go_dayly{
+	display: block;
+	width: 320px;
+	height: 50px;
+	background-color: #fff;
+	margin: 50px auto;
+	color: #7d7d7d;
+	text-align: center;
+	line-height: 50px;
+	text-decoration: none;
+}
+
+
+

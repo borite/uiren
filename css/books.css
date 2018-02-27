@@ -1,0 +1,98 @@
+
+#notice{
+    text-align: center;
+	padding: 70px 0;
+	font-size: 18px;
+}
+
+#notice > a{
+	text-decoration: none;
+	padding: 0 10px;
+}
+
+#content > section{
+	margin-top:40px;
+}
+
+#content > section:nth-child(3n+1) i.green-title{
+	border-color:#27AD5F;
+}
+
+#content > section:nth-child(3n+2) i.green-title{
+	border-color:#3397DB;
+}
+
+
+#content > section:nth-child(3n+3) i.green-title{
+	border-color:#8D43AD;
+}
+
+.green-title{
+	height: 19px;
+	border-left-width: 4px;
+	border-left-style: solid;
+	font-size: 18px;
+	line-height: 18px;
+	padding-left: 15px;
+	font-style: normal;
+}
+
+
+.books-wrap{
+    display:flex;
+	flex-wrap: wrap;
+    width:1200px;
+    border-collapse:collapse;
+	margin: 40px 0;
+	margin-left: 1px;
+}
+
+.books-row{
+	display: table-row;
+	width: 1200px;
+	height: 340px;
+}
+
+.books-cell {
+    width: 138px;
+    height: 280px;
+	padding: 30px 50px;
+    border: 1px solid #f6f6f6;
+    text-align: center;
+    vertical-align: middle;
+	text-decoration: none;
+	position: relative;
+	margin-left: -1px;
+	margin-top: -1px;
+}
+
+
+.books-cell img{
+	display: block;
+	border: none;
+}
+
+.books-cell > img{
+	margin: 15px auto 0px auto;
+	cursor: pointer;
+}
+
+.book-cell > img.book_saw{
+	display: none;
+}
+
+.book-pic{
+	display: block;
+	text-decoration: none;
+	border: none;
+}
+
+
+.book-name{
+	margin-top: 20px;
+	font-size: 14px;
+	line-height: 22px;
+	display: block;
+	color: #000;
+	text-decoration: none;
+}

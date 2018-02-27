@@ -1,0 +1,97 @@
+﻿.nav-grid{
+    display:table;
+    width:1200px;
+    border-collapse:collapse;
+	margin: 40px 0;
+}
+
+.nav-grid-tr{
+    display: table-row; height: 120px;
+}
+
+
+#content .nav-grid-first{
+	display: table-cell;
+    width: 240px;
+    height: 120px;
+    border: 1px solid #f6f6f6;
+    text-align: center;
+    vertical-align: middle;
+	text-decoration: none;
+	color: #fff;
+}
+
+/*循环1~4种颜色*/
+#content section.nav-grid:nth-child(4n+1) .nav-grid-first{
+	background-color: #27ad5f;
+}
+
+#content section.nav-grid:nth-child(4n+2) .nav-grid-first{
+	background-color: #3397DB;
+}
+
+#content section.nav-grid:nth-child(4n+3) .nav-grid-first{
+	background-color: #8D43AD;
+}
+
+#content section.nav-grid:nth-child(4n+4) .nav-grid-first{
+	background-color: #E74B3B;
+}
+
+.nav-grid-first h3{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.nav-grid-first h4{
+	font-size: 12px;
+	font-weight: normal;
+}
+
+
+
+.nav-grid-td {
+    display: table-cell;
+    width: 240px;
+    height: 120px;
+    border: 1px solid #f6f6f6;
+    text-align: center;
+    vertical-align: middle;
+	text-decoration: none;
+	position: relative;
+	transition: box-shadow 0.4s;
+}
+
+.nav-grid-td-placeholder{
+	visibility: hidden;
+}
+
+.nav-grid-td h3 {
+	font-size: 18px;
+	font-weight: normal;
+	color:#000;
+}
+
+.nav-grid-td h4 {
+	font-size: 12px;
+	font-weight: normal;
+	color:#aeaeae;
+	line-height: 28px;
+}
+
+.nav-grid-td .icon-go{
+	border: none;
+	display: block;
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	opacity: 0;
+}
+
+.nav-grid-td:hover{
+  box-shadow: 0px 18px 49px 0px rgba(132, 132, 132, 0.33);
+}
+
+.nav-grid-td:hover .icon-go{
+	opacity: 1;
+} 

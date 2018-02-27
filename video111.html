@@ -1,0 +1,152 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>视频播放页面</title>
+<link rel="stylesheet" type="text/css" href="css/uiren.css"/>
+<link rel="stylesheet" type="text/css" href="css/video.css">
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script>
+
+ 
+</script>
+</head>
+
+<body>
+<header id="head">
+  <div class="h-content clearfix">     
+
+<img class="h-logo" src="images/logo.png" alt="UI人LOGO"/>
+    <div class="h-login"> <img id="login_head" src="images/login.png"/> <i id="msg"></i> </div>
+    <nav class="h-nav clearfix"> <span class="selected"><a href="#">首页</a></span> <span><a href="#">课程</a></span> <span><a href="#">特训</a></span> <span><a href="#">比赛</a></span> <span class="last">资源
+      <ul class="downlist">
+        <li><a href="#">规范</a></li>
+        <li><a href="#">看书</a></li>
+        <li><a href="#">开始</a></li>
+        <li><a href="#">招聘</a></li>
+      </ul>
+      </span> </nav>
+  </div>
+</header>
+
+
+
+
+<div id="content"> 
+   <section class="video-warp">
+   	  <video id="play_video" controls controlsList="nodownload foobar">
+   	  	  <source src="video/Escape.mp4" />  	  	  
+   	  	  <track src="video/escape.vtt" srclang="zh-cn" label="简体中文" kind="caption" />  
+   	  </video>
+   </section>
+   
+   <section id="video_main" class="clearfix">
+   	  <div id="video_left_part">
+   	  	  <ul id="video_nav" class="clearfix">
+   	  	  	  <li class="selected">课程概述</li>
+   	  	  	  <li>课程目录</li>
+   	  	  	  <li>评论（34）</li>
+   	  	  </ul>
+   	  	  
+   	  	  <section id="class_intr" style="display: block;">
+   	  	  	
+   	  	  	 这里是 课程介绍 区域
+   	  	  	
+   	  	  </section>
+   	  	  
+   	  	  <section id="class_menu">
+   	  	  	
+   	  	  	这里是 课程目录  区域
+   	  	  	
+   	  	  </section>
+   	  	  
+   	  	  <section id="class_comment">
+   	  	  
+   	  	  	    <div class="msg-wrap clearfix">
+   	   	  	  	 	 <img class="msg-user-head" src="images/temp/head.png" />
+   	   	  	  	 	 <div class="msg-content">
+   	   	  	  	 	 	<p class="msg-name">张小娴 <span class="msg-time">2016-02-03 22:00</span></p>
+   	   	  	  	 	 	<p class="msg-text">好久不见，作品越来越有味道了，哈哈，好久不见，作品越来越有味道了，哈哈好久不见，作品越来越有味道了，哈哈好久不见，作品越来越有味道了，哈哈好久不见，作品越来越有味道了，哈哈好久不见，作品越来越有味道了，哈哈</p>
+   	   	  	  	 	    <a href="#" class="btn-reply">回复</a>
+   	   	  	  	 	 	
+   	   	  	  	 	 </div>
+   	   	  	  	 </div>
+
+   	   	  	  	 <b class="bottom-btn-more">更多</b>
+   	  	  	
+   	  	  </section>
+   	  	  
+   	  	  
+   	  </div>
+   	  
+   	  <div id="video_right_part">	
+   	  	  <b class="btn-price">￥23元</b>	  
+   	  	  <p class="video-auth-intr">
+   	  	  	嘿，我们是BIGD，  我们来了联合行业内顶级设计大咖带给你全新的教学方式课程内容行业干货！让你逃离设计瓶颈！
+   	  	  </p>
+   	  	  
+   	  	  <div class="headers">
+  	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  	  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	  </div>
+   	  </div>
+
+   </section>
+   
+   
+
+</div>
+
+
+
+
+<footer id="footer" class="common-footer">
+  <div class="footer-up">
+    <section class="up-content">
+      <ul class="foot-cols">
+        <li>
+          <h2>教育培训</h2>
+          <a href="#">UI线上培训</a> <a href="#">北京UI人设计学院</a> </li>
+        <li>
+          <h2>旗下产品</h2>
+          <a href="#">书籍推荐</a> <a href="#">网站导航</a> <a href="#">每日名画</a> <a href="#">诗情画意</a> </li>
+        <li>
+          <h2>关于我们</h2>
+          <a href="#">站酷团队</a> <a href="#">微信</a> <a href="#">微博</a> </li>
+        <li>
+          <h2>加入我们</h2>
+          <a href="#">全国组织</a> </li>
+        <li class="li-last">
+          <h2>官方微信</h2>
+          <img class="erweima" src="images/wxewm.png" alt="官方微信"/> </li>
+      </ul>
+    </section>
+  </div>
+  <div class="footer-down">
+    <section class="down-content">
+      <p> <a href="#">友情链接</a> <a href="#">广告合作</a> <a href="#">联系我们</a> <a href="#">关于我们</a> <a href="#">@UI人</a> </p>
+      <p> Copyright © 2016 界面人 UIREN.NET </p>
+    </section>
+  </div>
+</footer>
+
+  <div id="sidebar">
+    	<i id="to_top"></i>
+		<a id="email" href="mailto:26474600@qq.com"></a>
+  </div>
+    
+    <script>
+	   $("#to_top").click(function(){		   
+			$('body,html').animate({scrollTop:0},700);
+            return false;				   
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>UI人注册第一步</title>
+<link rel="stylesheet" type="text/css" href="css/uiren.css"/>
+<link rel="stylesheet" type="text/css" href="css/jquery.Jcrop.min.css">
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.poplayer.js"></script>
+<script src="js/jquery.Jcrop.min.js"></script>
+</head>
+
+<body>
+<header id="head">
+  <div class="h-content clearfix"> <img class="h-logo" src="images/logo.png" alt="UI人LOGO"/>
+    <div class="h-login"> <img id="login_head" src="images/login.png"/> <i id="msg"></i> </div>
+    <nav class="h-nav clearfix"> <span class="selected"><a href="#">首页</a></span> <span><a href="#">课程</a></span> <span><a href="#">特训</a></span> <span><a href="#">比赛</a></span> <span class="last">资源
+      <ul class="downlist">
+        <li><a href="#">规范</a></li>
+        <li><a href="#">看书</a></li>
+        <li><a href="#">开始</a></li>
+        <li><a href="#">招聘</a></li>
+      </ul>
+      </span> 
+     </nav>
+  </div>
+</header>
+<div class="top-bg"></div>
+
+<div id="content">
+   <div id="register_wrap">
+   	   <header id="reg_header">
+   	   	   <i class="reg-logo"></i>
+   	   	   <b class="reg-text">注册</b>
+   	   </header>
+   	   <form id="reg_step1">
+  	   	  <div id="avatar">
+ 	   	  	  <img id="avatar_img" src="images/default_avatar.png" />
+  	   	  </div>
+  	   	  <input id="avatar_select" type="file" accept="image/gif,image/png,image/jpeg,image/bmp">
+   	   	  <input type="text" class="ipt-txt" placeholder="用户名"/>
+   	   	  <input id="btn_doreg" type="submit" class="btn-do" value="完成" />
+   	   </form>
+   	   
+   	   <div id="third_account">
+   	   	  <p class="third-title">使用以下账号直接登录</p>
+   	   	  <div class="third-icon">
+   	   	  	  <a href="#"><img src="images/log_weibo.png"/></a>
+   	   	  	  <a href="#"><img src="images/log_qq.png"/></a>
+   	   	  	  <a href="#"><img src="images/log_wechat.png"/></a>
+   	   	  </div> 
+   	   </div>
+   </div>        
+</div>
+
+<footer id="footer" class="common-footer">
+  <div class="footer-up">
+      <section class="up-content">
+        <ul class="foot-cols">
+          <li>
+            <h2>教育培训</h2>
+            <a href="#">UI线上培训</a> <a href="#">北京UI人设计学院</a> </li>
+          <li>
+            <h2>旗下产品</h2>
+            <a href="#">书籍推荐</a> <a href="#">网站导航</a> <a href="#">每日名画</a> <a href="#">诗情画意</a> </li>
+          <li>
+            <h2>关于我们</h2>
+            <a href="#">站酷团队</a> <a href="#">微信</a> <a href="#">微博</a> </li>
+          <li>
+            <h2>加入我们</h2>
+            <a href="#">全国组织</a> </li>
+          <li class="li-last">
+            <h2>官方微信</h2>
+            <img class="erweima" src="images/wxewm.png" alt="官方微信"/> </li>
+        </ul>
+      </section>
+  </div>
+  <div class="footer-down">
+  	  <section class="down-content">
+  	  	 <p>
+  	  	 	<a href="#">友情链接</a>
+  	  	 	<a href="#">广告合作</a>
+  	  	 	<a href="#">联系我们</a>
+  	  	 	<a href="#">关于我们</a>
+  	  	 	<a href="#">@UI人</a>
+  	  	 </p>
+ 	  	 <p>
+ 	  	 	Copyright © 2016 界面人 UIREN.NET
+ 	  	 </p>	 	  	
+  	  </section>
+  	
+  </div>
+</footer>
+
+<!--头像上传弹出层-->
+
+    <div id="uppic_wrap" class="clearfix">
+        <header class="up_header clearfix">
+            <span style="float: left;">头像上传<i style="font-style:normal; font-size:12px;">(为保证图像清晰，请尽量使用<b>400x300</b>或<b>300x300</b>尺寸图片,最大3MB)</i></span>
+            <span style="float: right; cursor: pointer;" onclick="$.closePopLayer();">关闭</span>
+        </header>
+        <div id="pop_img_wrap">
+            <img id="cropbox" />
+        </div>
+
+        <div class="img-prev-wrap">
+            <canvas id="avatat_prev" width="200" height="200"></canvas>
+            <div id="btn_save">保存头像</div>
+        </div>
+
+    </div>
+
+
+<script>
+	
+	var jcrop_api;   //头像裁剪插件对象
+	
+	$("#avatar").click(function(){
+		$("#avatar_select").click();
+	});
+	
+	$("#btn_save").click(function () {
+        var imgSrc = document.getElementById("avatat_prev").toDataURL("image/png");
+        document.getElementById("avatar_img").src = imgSrc;
+        $.closePopLayer();
+    });
+
+	
+	$("#avatar_select").change(function(){
+		var size = 3 * 1024 * 1024;
+        var file = this.files[0];
+        var fileName = file.name;
+        var fileSize = file.size;
+        var fileType = fileName.substring(fileName.lastIndexOf('.'), fileName.length).toLowerCase();
+        if (fileType != '.gif' && fileType != '.jpeg' && fileType != '.png' && fileType != '.jpg') {
+            alert("上传失败，请上传jpg,png格式的图片");
+            return;
+        }
+        if (fileSize > size) {
+            alert("上传失败，请上传3MB以内的图片。");
+            return;
+        }
+        var reader = new FileReader();
+        reader.readAsDataURL(file);
+		reader.onload = function () {
+			 // 通过 reader.result 来访问生成的 DataURL
+            var url = reader.result;
+			$("#cropbox").attr("src", url);
+            initJcrop();
+            $.showPopLayer({
+                target: "uppic_wrap",
+                animate: false,
+                onPop: function () {
+                    if (jcrop_api != null) {
+                        jcrop_api.setImage(url, function () {
+                            var bb = this.getBounds();
+                            var bWidth = Number(bb[0]) / 2;
+                            var bHeight = Number(bb[1]) / 2;
+                            this.setSelect([0, 0, bWidth, bHeight]);
+                            var ss = this.getWidgetSize();
+                            var aheight = (300 - Number(ss[1])) / 2 + "px";
+                            $(".jcrop-holder").css({ "margin": aheight + " auto" });
+                        })
+                    }
+                },
+                onClose: function () {
+                    $('#avatar_select').prop('value', '');
+                }
+            });
+		}
+	})
+	
+	
+	//头像裁剪方法
+function initJcrop() {
+    $('#cropbox').Jcrop({
+        onSelect: updateCoords,
+        onChange: updateCoords,
+        aspectRatio: 1,
+        boxWidth: 400,
+        boxHeight: 300,
+        minSize: [150, 150]
+    }, function () {
+        jcrop_api = this;
+        //图片实际尺寸
+        var bb = this.getBounds();
+        var bWidth = Number(bb[0]) / 2;
+        var bHeight = Number(bb[1]) / 2;
+        this.setSelect([0, 0, bWidth, bHeight]);
+        var ss = this.getWidgetSize();
+        var aheight = (300 - Number(ss[1])) / 2 + "px";
+        $(".jcrop-holder").css({ "margin": aheight + " auto" });
+
+    });
+}
+function updateCoords(c) {
+    var img = document.getElementById("cropbox");
+    var ctx = document.getElementById("avatat_prev").getContext("2d");
+
+    //img,开始剪切的x,Y坐标宽高，放置图像的x,y坐标宽高。
+    ctx.drawImage(img, c.x, c.y, c.w, c.h, 0, 0, 200, 200);
+}
+	
+</script>
+
+
+</body>
+</html>

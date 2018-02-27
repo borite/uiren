@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>临摹</title>
+    <link href="css/mission.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/jquery.Jcrop.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/common.js"></script>
+	<script src="js/jquery.poplayer.js"></script>
+    <script src="js/jquery.Jcrop.min.js"></script>
+	<script src="js/Base64.js"></script>
+    <script src="js/moment.min.js"></script>
+	<script src="js/mission.js"></script>
+</head>
+<body>
+    <header id="head">
+        <div class="h-content clearfix">
+			<a href="default.html">
+			  <img class="h-logo" src="images/logo.png" alt="UI人LOGO" />
+			</a>
+			
+			<a href="default.html" class="back-txt">
+			   返回UI人首页kk
+			</a>
+			
+            <div id="h_login" class="h-login"> 
+			  <a id="log_head_wrap">
+			    <img id="login_head" src="images/login.png" />
+			  </a>
+              <a id="msg" href="privateletter.html"></a>
+            </div>
+            <nav class="h-nav clearfix">
+                <span class="dailyUI-selected"><a href="mission.html">关卡</a></span> <span><a href="hwlist.html">作业展示</a></span> <span><a href="myhw.html">我的作业</a></span>
+            </nav>
+			
+        </div>
+    </header>
+    <section class="mission-content">
+        <img id="img_work" src="images/UI.png" class="UI-pic" />
+        <div class="mission-info">
+            <span class="mission-info-left">
+                <i id="info-title"></i>
+                <div class="mission-info-cut"></div>
+                <i id="info-content"></i>
+            </span>
+            <button id="upload_btn" class="mission-info-right"><img src="images/ui-button.png"  style="cursor:pointer; border:none;"/></button>
+			<button id="save_study" class="mission-info-right"  style="display: none;"><img src="images/save-button.png" style="cursor:pointer; border:none;"></button>
+			<input id="avatar_select" style="display: none;" type="file" accept="image/gif,image/png,image/jpeg,image/bmp">
+        </div>
+    </section>
+	
+    <!--图片上传弹出层-->
+
+    <div id="uppic_wrap" class="clearfix">
+        <header class="up_header clearfix">
+            <span style="float: left;">作品上传<i style="font-style:normal; font-size:12px;">(为保证图像清晰，请尽量使用<b>800x600及以上比例为4:3</b>尺寸图片,最大5MB)</i></span>
+            <span style="float: right; cursor: pointer;" onclick="$.closePopLayer();">关闭</span>
+        </header>
+        <div id="pop_img_wrap">
+            <img id="cropbox" />
+        </div>
+
+        <div class="img-prev-wrap">
+            <canvas id="avatat_prev" width="800" height="600"></canvas>
+            <div id="btn_save">上传作业</div>
+        </div>
+
+    </div>
+	
+	
+</body>
+</html>

@@ -1,0 +1,176 @@
+﻿body{
+    background-color:#f8f8f8;
+}
+
+.top-bg {
+    background-image: url(../images/top_bg2.jpg);
+}
+
+
+.nav-bar {
+    width: 1200px;
+    margin: 50px auto;
+    display: flex;
+    justify-content:center;
+    list-style:none;
+    height:42px;
+}
+
+
+.nav-bar li{
+    margin:0 50px;
+    height:36px;
+    line-height:28px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+    .nav-bar li a {
+        font-size: 24px;
+        display: block;
+        width: 70%;
+        height: 3px;
+        word-break: keep-all;
+        text-align: center;
+        background-color: #2F1BCF;
+        margin: 10px auto 0 auto;
+        visibility: hidden;
+    }
+
+    .nav-bar li.selected {
+        color: #2F1BCF;
+    }
+
+    .nav-bar li.selected a{
+        visibility:visible;
+    }
+
+
+#content-class {
+    width: 1220px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap:wrap;
+    padding-bottom:15px;
+}
+
+    #content-class .cell {
+        width: 290px;
+        height: 455px;
+        background-color: #fff;
+        margin-right: 15px;
+        margin-top: 15px;
+        box-sizing: border-box;
+        transition: box-shadow ease-in-out 0.4s;
+    }
+
+        #content-class .cell:hover {
+            box-shadow: 0px 10px 38px 0px rgba(212, 212, 212, 0.85);
+        }
+
+    #content-class .cell img{
+        display:block;
+        border:none;
+    }
+
+        #content-class .cell .bottom {
+            height:103px;
+            border:1px solid #f5f5f5;
+        }
+
+
+.img-href{
+    display:block;
+    text-decoration:none;
+	cursor: pointer;
+}
+
+.bottom-top{
+    height:63px;
+    border-bottom:1px solid #f5f5f5;
+}
+
+.bottom-top a{
+    text-decoration:none;
+    display:inline-block;
+}
+
+.h5-tit{
+    font-size:16px;
+    color:#373737;
+    margin-top:12px;
+    margin-left:12px;
+	cursor: pointer;
+}
+.h5-type {
+    font-size: 12px;
+    color: #969494;
+    margin-top:4px;
+    margin-left:12px;
+}
+
+.bottom-down{
+    text-align:right;
+}
+
+    .bottom-down a {
+        text-decoration: none;
+        color: #19BD5E;
+        font-size:14px;
+        display:inline-block;
+        margin-top:8px;
+        margin-right:10px;
+    }
+
+
+#poplayer{
+    width:1000px;
+    height:900px;
+    background-color:#fff;
+    display:none;
+}
+
+#close_pop {
+    display: block;
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor:pointer;
+}
+
+.iphone-bg{
+    position:absolute;
+    width:466px;
+    height:804px;
+    background-image:url('../images/phone.png');
+    left:70px;
+    top:70px;
+}
+
+.works-img{
+    display:block;
+    position:absolute;
+    left:60px;
+    top:90px;
+}
+
+.work-tit{
+    display:block;
+    position:absolute;
+    font-size:24px;
+    color:#000;
+    left:500px;
+    top:330px;
+    font-weight:normal;
+	width: 430px;
+	text-align: center;
+}
+
+.work-ewm{
+    display:block;
+    position:absolute;
+    right:200px;
+    top:390px;
+}
