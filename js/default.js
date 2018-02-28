@@ -62,7 +62,7 @@ function BindVideoLesson()
 									  		<div class="video-info">\
 	 		       	  							<a href="video.html?vid='+lo.id+'" class="video-title">'+lo.name+'</a>\
 									  			<a href="#" class="video-author">'+lo.authorName+'</a>\
-									  			<a href="#" class="video-price">'+lo.price+'</a>\
+									  			<a href="#" class="video-price">'+formatPrice(lo.price)+'</a>\
 									  		</div>\
                                          </div>');
 						})

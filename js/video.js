@@ -46,9 +46,13 @@ $(function(){
 	
 })
 
+
+
+
+//绑定视频作者信息
 function bindVideoInfo(vid){
 	$.get(APIurl+"lesson/lessonDetail",{ lessonId:vid,token:uToken }).done(function(res){
-		//console.log(res);
+		console.log(res);
 		if(res.code==200){
 			$("#class_intr").text(res.data.lessonDesc);
 			document.title=res.data.name;

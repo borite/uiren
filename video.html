@@ -32,7 +32,7 @@
               <a id="msg" href="privateletter.html"></a>
             </div>
             <nav class="h-nav clearfix">
-                <span class="selected"><a target="_blank" href="default.html">首页</a></span> <span><a target="_blank" href="videolist.html">课程</a></span> <span><a target="_blank" href="mission.html">临摹</a></span> <span><a href="ui_books.html" target="_blank">书籍</a></span> <span><a href="nav.html" target="_blank">导航</a></span> <span><a target="_blank" href="http://www.uiren.net/html/new_texun.html">团队</a></span> <span class="last">
+                <span class="selected"><a target="_blank" href="default.html">首页</a></span> <span><a target="_blank" href="videolist.html">课程</a></span> <span><a target="_blank" href="mission.html">临摹</a></span> <span><a href="ui_books.html" target="_blank">书籍</a></span> <span><a href="nav.html" target="_blank">导航</a></span> <span><a target="_blank" href="http://www.zcool.com.cn/team/10560">团队</a></span> <span class="last">
                     资源
                     <ul class="downlist">
                         <li><a href="guide.html">规范</a></li>
@@ -46,10 +46,11 @@
    <!-- InstanceBeginEditable name="edit_main" -->
 	<div id="content"> 
 	   <section class="video-warp">
-		  <video id="play_video" controls controlsList="nodownload foobar">
+<!--		  <video id="play_video" controls controlsList="nodownload foobar">
 			  <source src="video/TheEscape.mp4" /> 
 			  <track src="video/TheEscape.vtt" srclang="zh-cn" label="简体中文" kind="subtitles">  
-		  </video>
+		  </video>-->
+		   <iframe id="play_video" frameborder="0" src="" allowfullscreen></iframe>
 	   </section>
    
   	   <section id="video_main" class="clearfix">
@@ -94,21 +95,15 @@
    	      </div>	
    	  
    	 	  <div id="video_right_part">	
-   	  	 	  <b class="btn-price">￥23元</b>	  
-   	  		  <p class="video-auth-intr">
-   	  	  		嘿，我们是BIGD，  我们来了联合行业内顶级设计大咖带给你全新的教学方式课程内容行业干货！让你逃离设计瓶颈！
-   	  		  </p>
-   	  	  
-			  <div class="headers">
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
-				  <a href="#"><img src="images/temp/head.png" /></a>
+   	  	 	  <b class="btn-price"></b>	  
+   	  		  <div style="margin-top: 30px;" class="clearfix">
+				 <img id="auth_avatar" />
+			     <div id="auth_info">
+				   <div id="auth_name"></div>
+				   <div id="auth_intr"></div>
+				 </div>
 			  </div>
+   	  	 
    	  	  </div>
 
   	   </section>

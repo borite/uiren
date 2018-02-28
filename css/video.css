@@ -72,7 +72,6 @@ body{
 
 #video_right_part{
 	width: 280px;
-    min-height: 300px;
 	background-color: #fff;
 	float: right;
 	padding: 35px;
@@ -318,5 +317,5 @@ body{
 }
 
 #auth_intr{
-padding-top: 10px;
+	padding-top: 10px;
 }

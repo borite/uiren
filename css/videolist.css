@@ -9,7 +9,7 @@ body{
 	width: 100%;
 	background-image: url(../images/video_topbg.jpg);
 	background-repeat: no-repeat;
-	background-size: 1920px 285px;
+	background-size: auto 400px;
 	background-position: center 0;
 }
 
