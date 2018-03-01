@@ -389,7 +389,7 @@ a{
 .teacher-name{
 	font-size: 12px;
 	line-height: 25px;
-	display: block;
+	display: inline-block;
 	color: #969494;
 	text-decoration: none;
     text-indent:12px;
@@ -406,7 +406,6 @@ a{
     width:290px;
     height:24px;
     margin-top:20px;
-
 }
 
 /*study end*/

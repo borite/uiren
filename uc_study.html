@@ -13,6 +13,7 @@
    <link rel="stylesheet" type="text/css" href="css/uiren.css" />
    <!-- InstanceBeginEditable name="head" -->
    <link rel="stylesheet" type="text/css" href="css/usercenter.css"/>
+   <script type="text/javascript" src="js/userstudy.js"></script>
    <!-- InstanceEndEditable -->
 </head>
 
@@ -47,26 +48,26 @@
 	<div class="top-bg"></div>
     <div id="content">
         <section id="uc_top">
-            <div class="uc-top-wrap">
-                <div class="uc-content clearfix">
-                    <img class="top-head" src="images/temp/head.png" />
-                    <div class="user-data">
-                        <h2 class="top-uname">CARCARBRO</h2>
-                        <div class="data-wrap clearfix">
-                            <h3 class="data-num">123</h3>
-                            <h3 class="data-text">关注</h3>
-                        </div>
-                        <div class="data-wrap clearfix">
-                            <h3 class="data-num">456</h3>
-                            <h3 class="data-text">粉丝</h3>
-                        </div>
-                        <div class="data-wrap clearfix">
-                            <h3 class="data-num">12</h3>
-                            <h3 class="data-text">访问量</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
+		   <div id="user_info_area" class="uc-top-wrap">
+			   <div class="uc-content clearfix">
+				   <img id="top_tx" class="top-head" src="images/temp/head.png"/>
+				   <div class="user-data">
+					   <h2 id="top_name" class="top-uname"></h2>
+					   <div class="data-wrap clearfix">
+						  <h3 id="top_follow" class="data-num"></h3>
+						  <h3 class="data-text">关注</h3>
+					   </div>
+					   <div class="data-wrap clearfix">
+						  <h3 id="top_fans" class="data-num"></h3>
+						  <h3 class="data-text">粉丝</h3>
+					   </div>
+					   <div class="data-wrap clearfix">
+						  <h3 id="top_views" class="data-num"></h3>
+						  <h3 class="data-text">访问量</h3>
+					   </div>
+				   </div>   	   	   	   
+			   </div>  
+		   </div>
         </section>
 
         <section id="uc_main" class="clearfix">
@@ -77,57 +78,11 @@
 			   <p>我的好友</p>
             </aside>
             <div id="uc_main_right">
-                <div class="inline-course">
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                </div>
-                <div class="inline-course">
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div><div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                </div>
-                <div class="inline-course">
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                    <div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div><div class="each-course">
-                        <a href="#" class="course-bg"> <img src="images/course_bg.png" style="height:180px;width:290px;" /> </a>
-                        <a href="#" class="course-name">Photoshop人像后期处理基础课程</a>
-                        <a href="#" class="teacher-name">郗鉴</a><div class="course-price">￥23</div>
-                    </div>
-                </div>
+               <div id="record_area" class="inline-course">
+				   
 
-            </div>
+               </div>
+			</div>
         </section>
 
 
@@ -156,15 +111,15 @@
                     </li>
                     <li>
                         <h2>旗下产品</h2>
-                        <a href="ui_books.html" target="_blank">书籍推荐</a> <a href="#">网站导航</a> <a href="#">每日名画</a> <a href="#">诗情画意</a>
+                        <a href="ui_books.html" target="_blank">书籍推荐</a> <a href="nav.html">网站导航</a> <a target="_blank" href="https://itunes.apple.com/cn/app/mei-ri-ming-hua/id559961491?mt=8">每日名画</a> <a href="https://itunes.apple.com/cn/app/shi-qing-hua-yi/id585174047?mt=8">诗情画意</a>
                     </li>
                     <li>
                         <h2>关于我们</h2>
-                        <a href="#">站酷团队</a> <a href="#">微信</a> <a href="#">微博</a>
+                        <a target="_blank" href="http://www.zcool.com.cn/team/10560">站酷团队</a> <a href="#">微信</a> <a href="#">微博</a>
                     </li>
                     <li>
                         <h2>加入我们</h2>
-                        <a href="#">全国组织</a>
+                        <a target="_blank" href="http://www.zcool.com.cn/team/10560">全国组织</a>
                     </li>
                     <li class="li-last">
                         <h2>关注公众号有惊喜哦</h2>

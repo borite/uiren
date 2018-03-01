@@ -16,6 +16,14 @@ $(function(){
 	 if(checkLogin()){
 		 uToken=localStorage.getItem("uirenToken");
 		 LoginUserID=localStorage.getItem("uirenUID");
+		 
+		 //增加学习记录
+		 $.post(APIurl+"lesson/studyRecord",{token:uToken,lessonId:videoID}).done(function(res){
+			 if(res.code!=200){
+				 alert("学习记录添加错误，请联系管理员~");
+			 }
+		 })
+		 
 	 }else
 	 {
 		alert("请先登录");	 
