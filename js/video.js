@@ -77,7 +77,8 @@ function bindVideoInfo(vid){
 			var videoURL=res.data.videos[0].url;
 			
 			if(videoURL!=""){
-				$("#play_video").attr('src',videoURL);
+				
+				$("#play_video").attr('src', videoURL);
 			}
 			
 		}else{
