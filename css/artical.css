@@ -1,0 +1,106 @@
+/* CSS Document */
+body{
+	background-color: #f8f8f8;
+}
+
+#list_area {
+	display: block;
+	width: 275px;
+	height: 100%;
+	background-color: #373737;
+	position: absolute;
+	padding: 30px;
+	box-sizing: border-box;
+}
+
+#content {
+	position: relative; padding-bottom: 20px;
+}
+
+
+.channal {
+	font-size: 20px;
+	color: #fff;
+	font-weight: normal;
+}
+
+#artical_list {
+	list-style: none;
+	margin-top: 50px;
+}
+
+#artical_list > li{
+	font-size: 16px;
+	color: #fff;
+	display: block;
+	padding-left: 20px;
+	margin-top: 45px;
+}
+
+#artical_list > li > a{
+	color: #fff;
+	text-decoration: none;
+}
+
+#ad_pic {
+	width: 215px;
+	height: auto;
+	margin-top: 40px;
+}
+
+#right_content {
+	position: absolute;
+	width: 925px;
+	background-color: #fff;
+	left: 275px;
+	height: 100%;
+}
+
+.arri-block {
+	border: 1px solid #f6f6f6;
+	width: 290px;
+	height: 275px;
+	float: left;
+    margin-left: 12px;
+	margin-top: 20px;
+	position: relative;
+}
+
+.arti-pic {
+	display: block;
+	border: none;
+}
+
+
+.arti-title {
+	font-size: 16px;
+	color: #373737;
+	text-decoration: none;
+	display: inline-block;
+	margin: 10px 0px 8px 10px;
+	
+}
+
+
+
+.arti-auth {
+	display: inline-block;
+	text-decoration: none;
+	font-size: 12px;
+	margin-left: 10px;
+	color: #969494;
+}
+
+.block-bottom {
+	height: 35px;
+	width: 100%;
+	display: block;
+	position: absolute;
+	bottom: 0px;
+	border-top:1px solid #f6f6f6;
+	text-align: right;
+	padding: 10px;
+	box-sizing: border-box;
+	font-size: 12px;
+	color: #C1C1C1;
+}
