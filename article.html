@@ -6,14 +6,59 @@
    <meta name="description" content="UI人是中国UI设计师互动平台，为中国UI职人提供求职、练习、工具下载、网址导航等一站式服务。" />
    <meta name="viewport" content="width=1240,user-scalable=yes"/>
    <!-- InstanceBeginEditable name="doctitle" -->
-   <title>个人中心-读书记录</title>
+   <title>文章详情页</title>
+   <link rel="stylesheet" type="text/css" href="css/artical.css" />
+   <link rel="stylesheet" type="text/css" href="css/pagination.css" />
    <!-- InstanceEndEditable -->
    <script src="js/jquery-3.2.1.min.js"></script>
    <script src="js/common.js"></script>
    <link rel="stylesheet" type="text/css" href="css/uiren.css" />
    <!-- InstanceBeginEditable name="head" -->
-   <link rel="stylesheet" type="text/css" href="css/usercenter.css"/>
-   <script src="js/usercenter_read.js"></script>
+   <script type="text/javascript" src="js/pagination.min.js"></script>
+   <script>
+	   
+	   APIurl="http://47.93.84.249:30000/";
+	   
+	   $(function(){
+		   getArticleTypes();
+		   
+		   var aid=GetQueryString("aid");	   
+	   })
+	   
+	   function getArticleTypes(){
+
+			var listItemHtml="<li><a></a></li> "
+
+			$.get(APIurl+"article/articleTypes").done(function(res){
+
+				if(res.code==200){
+					
+					$("#artical_list").empty();
+					if(res.data.length==0){
+						alert("还没有文章信息");
+					}
+					else{
+						var allTypeNum=res.data.length;
+						$.each(res.data,function(i,o){
+							$("#artical_list").append(listItemHtml);
+							$("#artical_list > li:last-child").attr('data-tid',o.id).find('a').attr('href','articlelist.html?typeid='+o.id).text(o.name);
+						});
+					}
+				}else{
+					alert("出错了~"+res.message);
+				}
+			})
+		}
+	   
+	   
+	   function getArticleContent(aid){
+		   $.get(APIurl+"article/articleDetail",{id:aid}).done(function(res){
+			   console.log(res);
+		   })
+	   }
+	
+   
+   </script>
    <!-- InstanceEndEditable -->
 </head>
 
@@ -44,54 +89,35 @@
     </header>
 	<script>setSelectPage();</script>
    <!-- InstanceBeginEditable name="edit_main" -->
-	<div class="top-bg"></div>
-    <div id="content">
-	   <section id="uc_top">
-		   <div id="user_info_area" class="uc-top-wrap">
-			   <div class="uc-content clearfix">
-				   <img id="top_tx" class="top-head" />
-				   <div class="user-data">
-					   <h2 id="top_name" class="top-uname"></h2>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_follow" class="data-num"></h3>
-						  <h3 class="data-text">关注</h3>
-					   </div>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_fans" class="data-num"></h3>
-						  <h3 class="data-text">粉丝</h3>
-					   </div>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_views" class="data-num"></h3>
-						  <h3 class="data-text">访问量</h3>
-					   </div>
-				   </div>   	   	   	   
-			   </div>  
-		   </div>
-	    </section>
+	<div id="content">
+	   
+	  <section id="list_area">
+	      <h2 class="channal">文章频道</h2>
+		  <ul id="artical_list">
+<!--			<li><a href="articlelist.html?typeid=2">设计软件下载</a></li> 
+			<li>设计软件下载</li> 
+			<li>设计软件下载</li> 
+			<li>设计软件下载</li>
+			<li>设计软件下载</li>   
+-->		  </ul>
+		  <img id="ad_pic" src="images/ad2.jpg"/>
+	  </section>
+	   
+	  <section id="right_content" class="clearfix">
+	     
+	  </section>
 
-        <section id="uc_main" class="clearfix">
-            <aside id="uc_main_left">
-               <p><a href="usercenter.html?sid=self">个人主页</a></p>
-			   <p><a href="uc_study.html?sid=self">学习记录</a></p>
-			   <p class="select"><a href="uc_read.html?sid=self">我读的书</a></p>
-			   <p>我的好友</p>
-            </aside>
-            <div id="uc_main_right">
-				<div id="read_list">
-					
-					
-				</div>
-				
-            </div>
-        </section>
-
-
+	  <div id="pagination"></div>
+	   
+	
     </div>
 	
 	
 	
 	
-	<!-- InstanceEndEditable -->
+	
+	
+    <!-- InstanceEndEditable -->
 	
 	
 	
