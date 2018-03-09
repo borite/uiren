@@ -48,7 +48,7 @@ function BindRollImgs(i_type){
 function BindVideoLesson()
 {
 	$.get(APIurl+"lesson/lessonTypes").done(function(res){
-		console.log(res.data);
+		//console.log(res.data);
 		$.each(res.data,function(i,o){
 			$("#video_list").append('<section class="video-wrap"><i class="video-type-tit">'+o.name+'</i><div id="vt_'+o.id+'" class="video-list clearfix"></div></section>');
 			$("#video_list i.video-type-tit:even").css('border-left-color','#FF355B');

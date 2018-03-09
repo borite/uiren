@@ -6,16 +6,17 @@ var toUserID="-1";  //要发送给某个用户的ID
 
 //用户左边的私信对话列表
 var leftConvBlock='<li id="n" data-cid="-1" class="list-item">\
-				   <div class="item-content">\
-				  	 <a class="pl-avatar">\
-				      	<img class="img-avatar" src="" width="70" height="70"></img>\
-				   	 </a>\
-				     <div class="item-right">\
-						 <h2 class="name"><i class="send-time">14:25</i></h2>\
-						 <div class="letter-summ"></div>\
-				     </div>\
-				   </div>\
-			     </li>';
+					<i class="read-tag"></i>\
+				    <div class="item-content">\
+				  	   <a class="pl-avatar">\
+				      	  <img class="img-avatar" src="" width="70" height="70"></img>\
+				   	   </a>\
+				       <div class="item-right">\
+						  <h2 class="name"><i class="send-time">14:25</i></h2>\
+						  <div class="letter-summ"></div>\
+				       </div>\
+				    </div>\
+			      </li>';
 
 //私信右边的具体内容列表模板
 var rightConvList='<li class="clearfix">\
@@ -52,8 +53,8 @@ $(function(){
 		$("#list_pl > li").removeClass('list-item-select');
 		$(this).addClass('list-item-select');
 		toUserID=$(this).attr('id');
-		var convID=$(this).data('cid');
-		getLetterConv(convID);
+		
+		getLetterConv($(this));
 	});
 	
 	
@@ -71,6 +72,7 @@ $(function(){
 
 function getConversations(){
 	$.get(APIurl+"privateLetter/conversations",{token:uToken}).done(function(res){
+		console.log(res);
 		if(res.code==200){
 			console.log(res.data.rows);
 			if(res.data.rows.length==0){
@@ -84,10 +86,12 @@ function getConversations(){
 						.end().find('h2.name').html(o.otherUserName+'<i class="send-time"></i>')
 						.end().find('i.send-time').text(getDateDiff(o.lastMessageTime))
 						.end().find('div.letter-summ').text(o.lastContent);
+					if(o.readTag==1){
+						$("#list_pl > li:last-child").find("i.read-tag").hide();
+					}
 					
 				});
 				$("#list_pl > li:first-child").addClass('list-item-select');
-				//toUserID=$("#list_pl > li:first-child").data("cid");
 				
 				var action=GetQueryString("action");
 				//如果是发送私信，从作业细节页面跳转过来
@@ -130,7 +134,6 @@ function sendLetter(toUID){
 	var letterContent=$("#ipt_text").val();
 	if($.trim(letterContent)!=""){
 		$.post(APIurl+"privateLetter/send",{token:uToken,receiveUserId:toUID,content:letterContent}).done(function(res){
-			//alert(res.data.converSationId);
 			getLetterConv(res.data.converSationId);
 		})
 	}else{
@@ -142,20 +145,29 @@ function sendLetter(toUID){
 
 
 //获取私信内容，cid为
-function getLetterConv(cid){
+function getLetterConv(obj){
+	var convID=obj.data('cid');
 	$.get(APIurl+'privateLetter/privateLetters',{token:uToken,conversationId:cid}).done(function(res){
+		console.log(res);
 		if(res.code==200){
-			console.log(res);
 			$("#conv_list").empty();
-			
 			$.each(res.data.rows,function(i,o){
 					$("#conv_list").append(rightConvList);
 					$("#conv_list > li:last-child").find('img.conv-avatar').attr('src',o.sendHeadPortrait)
 				     .end().find('h2.name').text(o.sendUserName)
 				     .end().find('i.send-time').text(getDateDiff(o.createTime))
 				     .end().find('div.conv-content').text(o.content);
+			});
+			
+			$.post(APIurl+"privateLetter/conversation/read",{token:uToken,converSationId:cid}).done(function(res){
+				if(res.code==200){
+					
+				}
 			})
 			
+			
+		}else{
+			alert(res.message);
 		}
 	})
 }

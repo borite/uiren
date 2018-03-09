@@ -219,3 +219,14 @@
 	cursor: pointer;
 }
 
+
+.read-tag {
+	display: block;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+	background-color: #DF0F0F;
+	width: 10px;
+	height: 10px;
+	border-radius: 50%;
+}

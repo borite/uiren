@@ -28,6 +28,7 @@ function doLogin(uname,upwd){
 			localStorage.setItem("uirenToken", res.data.token);  //设置存储token
 		    alert("登录成功");
 			self.location='default.html'; 
+			
 		}else{
 		   alert(res.message);
 		}
@@ -44,6 +45,9 @@ function checkLogin(){
 	if(loginToken!=null){//获取存在本地的Token，如果Token不为空，则发送到服务端验证
 		$.get(url,{token:loginToken}).done(function(res){
 			if(res.code=="200"){  //返回验证成功
+				
+				
+				
 				$("#login_head").attr('src',res.data.headPortrait);  //设置头像
 				//当用户登录成功后，把下拉列表的内容加入到页面中
 				var htmls='<ul class="downlist">\
@@ -56,7 +60,7 @@ function checkLogin(){
 				//将用户名和用户ID存储
 				localStorage.setItem("uirenUname",res.data.userName);  
 				localStorage.setItem("uirenUID",res.data.userId);
-				
+				getPrivateLetter(loginToken);
 				
 			}else{ //否则，把头像的链接设置到登录页面
 				$("#log_head_wrap").attr('href','new_login.html');
@@ -168,5 +172,21 @@ function formatPrice(price){
 	}
 }
 
-
+//获取私信数量
+function getPrivateLetter(userToken){
+	
+	$.get(APIurl+"privateLetter/unreadConversationCount",{token:userToken}).done(function(res){
+		if(res.code==200){
+			if(res.data.count>0){
+				console.log(res.data.count);
+				$("#msg").css("background-image","url(images/ring1.png)");
+				
+			}else{
+				$("#msg").css("background-image","url(images/ring1.png)");
+			}
+		}else{
+			alert(res.message);
+		}
+	})
+}
   
