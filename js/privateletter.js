@@ -45,16 +45,25 @@ $(function(){
 	}
 	
 	
-	//左边的高度同右边相等
-	var h=$("#conv_area").outerHeight();
-	$("#letterlist").height(h);
 
 	$("#list_pl").on('click','li',function(){
 		$("#list_pl > li").removeClass('list-item-select');
 		$(this).addClass('list-item-select');
 		toUserID=$(this).attr('id');
+		var action=GetQueryString("action");
+		if(action=="send")   //如果是发送情况，将会判断首个对话
+		{
+			if($(this).index()>0){
+				getLetterConv($(this));
+			}else if($(this).data('cid')=="-1"){  //说明没有对话
+				$("#conv_list").empty();
+			}else{  //说明已经发表了私信
+				getLetterConv($(this));
+			}	
+		}else{
+			getLetterConv($(this));
+		}
 		
-		getLetterConv($(this));
 	});
 	
 	
@@ -69,10 +78,10 @@ $(function(){
 	
 })
 
-
+//获取左边私信列表
 function getConversations(){
 	$.get(APIurl+"privateLetter/conversations",{token:uToken}).done(function(res){
-		console.log(res);
+		//console.log(res);
 		if(res.code==200){
 			console.log(res.data.rows);
 			if(res.data.rows.length==0){
@@ -91,7 +100,7 @@ function getConversations(){
 					}
 					
 				});
-				$("#list_pl > li:first-child").addClass('list-item-select');
+				
 				
 				var action=GetQueryString("action");
 				//如果是发送私信，从作业细节页面跳转过来
@@ -112,13 +121,13 @@ function getConversations(){
 						}
 		
 				}
+					
+					$("#list_pl > li:first-child").addClass('list-item-select').click();
+				
 				
 				//getLetterConv(toUserID);
-				$("#list_pl > li:first-child").click();
 				
-				
-				
-					
+			
 			}
 		}else{
 			alert("出错了！"+res.message);
@@ -134,7 +143,14 @@ function sendLetter(toUID){
 	var letterContent=$("#ipt_text").val();
 	if($.trim(letterContent)!=""){
 		$.post(APIurl+"privateLetter/send",{token:uToken,receiveUserId:toUID,content:letterContent}).done(function(res){
-			getLetterConv(res.data.converSationId);
+			//getLetterConv(res.data.converSationId);
+			//alert(res.data.converSationId);
+			$("#ipt_text").val('');
+			if($("#"+toUID).data('cid')=="-1"){
+				$("#"+toUID).attr('data-cid',res.data.converSationId);
+			}
+			//alert($("#"+toUID).attr('data-cid'));
+			getLetterConv($("#"+toUID));
 		})
 	}else{
 		alert("写点什么吧~");
@@ -146,30 +162,42 @@ function sendLetter(toUID){
 
 //获取私信内容，cid为
 function getLetterConv(obj){
-	var convID=obj.data('cid');
-	$.get(APIurl+'privateLetter/privateLetters',{token:uToken,conversationId:cid}).done(function(res){
-		console.log(res);
-		if(res.code==200){
-			$("#conv_list").empty();
-			$.each(res.data.rows,function(i,o){
-					$("#conv_list").append(rightConvList);
-					$("#conv_list > li:last-child").find('img.conv-avatar').attr('src',o.sendHeadPortrait)
-				     .end().find('h2.name').text(o.sendUserName)
-				     .end().find('i.send-time').text(getDateDiff(o.createTime))
-				     .end().find('div.conv-content').text(o.content);
-			});
-			
-			$.post(APIurl+"privateLetter/conversation/read",{token:uToken,converSationId:cid}).done(function(res){
+	var cid=obj.attr('data-cid');
+	
+	//alert(cid);
+			$.get(APIurl+'privateLetter/privateLetters',{token:uToken,conversationId:cid}).done(function(res){
+				console.log(res);
 				if(res.code==200){
-					
+					$("#conv_list").empty();
+					$.each(res.data.rows,function(i,o){
+							$("#conv_list").append(rightConvList);
+							$("#conv_list > li:last-child").find('img.conv-avatar').attr('src',o.sendHeadPortrait)
+							 .end().find('h2.name').text(o.sendUserName)
+							 .end().find('i.send-time').text(getDateDiff(o.createTime))
+							 .end().find('div.conv-content').text(o.content);
+							if(o.sysInfo!=null){
+							    var a=JSON.parse(o.sysInfo);
+								var t=o.content;
+								t+="<br/><a href=\"http://www.uiren.net/hw_detail.html?sid="+a.userStudyId+"\">http://www.uiren.net/hw_detail.html?sid="+a.userStudyId+"</a>";
+								$("#conv_list > li:last-child").find('div.conv-content').html(t);
+							}
+					});
+
+					//状态设置为已读
+					$.post(APIurl+"privateLetter/conversation/read",{token:uToken,converSationId:cid}).done(function(res){
+						if(res.code==200){
+							obj.find("i.read-tag").hide();
+							getPrivateLetter(uToken);
+						}
+					})
+
+
+				}else{
+					alert(res.message);
 				}
-			})
-			
-			
-		}else{
-			alert(res.message);
-		}
-	})
+			});
+
+	
 }
 
 

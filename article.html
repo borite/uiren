@@ -15,50 +15,7 @@
    <link rel="stylesheet" type="text/css" href="css/uiren.css" />
    <!-- InstanceBeginEditable name="head" -->
    <script type="text/javascript" src="js/pagination.min.js"></script>
-   <script>
-	   
-	   APIurl="http://47.93.84.249:30000/";
-	   
-	   $(function(){
-		   getArticleTypes();
-		   
-		   var aid=GetQueryString("aid");	   
-	   })
-	   
-	   function getArticleTypes(){
-
-			var listItemHtml="<li><a></a></li> "
-
-			$.get(APIurl+"article/articleTypes").done(function(res){
-
-				if(res.code==200){
-					
-					$("#artical_list").empty();
-					if(res.data.length==0){
-						alert("还没有文章信息");
-					}
-					else{
-						var allTypeNum=res.data.length;
-						$.each(res.data,function(i,o){
-							$("#artical_list").append(listItemHtml);
-							$("#artical_list > li:last-child").attr('data-tid',o.id).find('a').attr('href','articlelist.html?typeid='+o.id).text(o.name);
-						});
-					}
-				}else{
-					alert("出错了~"+res.message);
-				}
-			})
-		}
-	   
-	   
-	   function getArticleContent(aid){
-		   $.get(APIurl+"article/articleDetail",{id:aid}).done(function(res){
-			   console.log(res);
-		   })
-	   }
-	
-   
-   </script>
+   <script type="text/javascript" src="js/articalcontent.js"></script>
    <!-- InstanceEndEditable -->
 </head>
 
@@ -94,17 +51,23 @@
 	  <section id="list_area">
 	      <h2 class="channal">文章频道</h2>
 		  <ul id="artical_list">
-<!--			<li><a href="articlelist.html?typeid=2">设计软件下载</a></li> 
-			<li>设计软件下载</li> 
-			<li>设计软件下载</li> 
-			<li>设计软件下载</li>
-			<li>设计软件下载</li>   
--->		  </ul>
+			  
+			  
+		  </ul>
 		  <img id="ad_pic" src="images/ad2.jpg"/>
 	  </section>
 	   
-	  <section id="right_content" class="clearfix">
-	     
+	  <section id="right_content" style="padding: 30px 40px; box-sizing: border-box;">
+	     <h2 id="arti_title">这里是文章标题</h2>
+		 <h3 id="arti_info">作者：<a href="" class="arti-author">郗建</a><span class="arti-pub-time">发表时间：3天前</span></h3>
+		 <div id="arti_content">
+		  
+		  
+		  
+		 </div>
+		 
+		  
+		  
 	  </section>
 
 	  <div id="pagination"></div>

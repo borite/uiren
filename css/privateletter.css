@@ -30,13 +30,14 @@
 }
 
 #list_pl{
-	height: 100%;
+	height: 800px;
 	list-style: none;
-	
+	width: 100%;
+	overflow-y: auto;
 }
 
 .list-item{
-	width: 360px;
+	width: 100%;
 	height: 120px;
 	position: relative;
 	display: flex;
@@ -142,6 +143,7 @@
 	min-height: 80px;
 }
 
+
 .conv-info {
 	float: left;
 	width: 630px;
@@ -180,6 +182,15 @@
 	font-size: 14px;
 	color: #979797;
 	line-height: 25px;
+}
+
+#conv_list .conv-content a{
+	text-decoration: none;
+	color: #999;
+}
+
+#conv_list .conv-content a:hover{
+	color: #542CF8;
 }
 
 #conv_list .btn-del-letter{

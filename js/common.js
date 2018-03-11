@@ -97,6 +97,25 @@ function formatDate(nS) {
        return theDate;
 }  
 
+
+function formatDateTime(inputTime) {    
+    var date = new Date(inputTime);  
+    var y = date.getFullYear();    
+    var m = date.getMonth() + 1;    
+    m = m < 10 ? ('0' + m) : m;    
+    var d = date.getDate();    
+    d = d < 10 ? ('0' + d) : d;    
+    var h = date.getHours();  
+    h = h < 10 ? ('0' + h) : h;  
+    var minute = date.getMinutes();  
+    var second = date.getSeconds();  
+    minute = minute < 10 ? ('0' + minute) : minute;    
+    second = second < 10 ? ('0' + second) : second;   
+    return y + '年' + m + '月' + d+'日 '+h+':'+minute+':'+second;    
+}; 
+
+
+
 //计算距离多久之前
 function getDateDiff(dateTimeStamp){
 	var minute = 1000 * 60;
@@ -114,7 +133,7 @@ function getDateDiff(dateTimeStamp){
 	var minC =diffValue/minute;
 	var result="刚刚";
 	if(weekC>=1){
-		result=formatDate(dateTimeStamp);
+		result=formatDateTime(dateTimeStamp);
 	}
 	else if(dayC>=1){
 		result=""+ parseInt(dayC) +"天前";

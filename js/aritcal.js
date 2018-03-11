@@ -6,6 +6,8 @@ APIurl="http://47.93.84.249:30000/";
 
 $(function(){
 	getArticleTypes();
+ 
+    
 })
 
 
@@ -16,7 +18,7 @@ function getArticleTypes(){
 	$.get(APIurl+"article/articleTypes").done(function(res){
 	 
 		if(res.code==200){
-			console.log(res);
+			
 			$("#artical_list").empty();
 			if(res.data.length==0){
 				alert("还没有文章信息");
@@ -72,5 +74,17 @@ function getArticleByTypeID(){
 	})
 	
 }
+
+//获取文章内容
+function getArticleContent(aid){
+		   $.get(APIurl+"article/articleDetail",{id:aid}).done(function(res){
+			   //console.log(res);
+			   document.title=res.data.title;
+			   $("#arti_title").text(res.data.title);
+			   $("#arti_info .arti-pub-time").text("发表时间："+getDateDiff(res.data.createTime));
+			   $("#arti_info .arti-author").text(res.data.userName).attr("href","usercenter.html?sid="+res.data.userId);
+			   $("#arti_content").html(res.data.content);
+		   })
+	   }
 
 

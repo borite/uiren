@@ -109,3 +109,34 @@ body{
 	display: block;
 	text-decoration: none;
 }
+
+
+
+#arti_title {
+	margin-top: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	text-align: center;
+	
+}
+
+.arti-author {
+	text-decoration: none;
+	color: #c2c2c2;
+}
+
+#arti_info {
+	font-weight: normal;
+	font-size: 12px;
+	color: #c2c2c2;
+	text-align: center;
+	margin-top: 20px;
+}
+
+.arti-pub-time {
+	padding-left: 40px;
+}
+
+#arti_content {
+	margin-top: 60px;
+}

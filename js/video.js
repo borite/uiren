@@ -77,6 +77,12 @@ function bindVideoInfo(vid){
 			var videoURL=res.data.videos[0].url;
 			
 			if(videoURL!=""){
+				var player='<iframe id="play_video" frameborder="0" src="" allowfullscreen></iframe>'
+				if(videoURL.indexOf("http://system.video.uiren.net/")!=-1){
+					//<video id="play_video" controls controlsList="nodownload foobar">
+					player='<video id="play_video" src="" autoplay controls controlsList="nodownload foobar"></video>'
+				}
+				$("#content .video-warp").append(player);
 				
 				$("#play_video").attr('src', videoURL);
 			}
