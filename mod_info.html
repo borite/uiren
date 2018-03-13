@@ -6,14 +6,18 @@
    <meta name="description" content="UI人是中国UI设计师互动平台，为中国UI职人提供求职、练习、工具下载、网址导航等一站式服务。" />
    <meta name="viewport" content="width=1240,user-scalable=yes"/>
    <!-- InstanceBeginEditable name="doctitle" -->
-   <title>个人中心-学习记录</title>
+   <title>修改信息</title>
    <!-- InstanceEndEditable -->
    <script src="js/jquery-3.2.1.min.js"></script>
    <script src="js/common.js"></script>
    <link rel="stylesheet" type="text/css" href="css/uiren.css" />
    <!-- InstanceBeginEditable name="head" -->
-   <link rel="stylesheet" type="text/css" href="css/usercenter.css"/>
-   <script type="text/javascript" src="js/userstudy.js"></script>
+   <link rel="stylesheet" type="text/css" href="css/jquery.Jcrop.min.css">
+   <script src="js/jquery.poplayer.js"></script>
+   <script src="js/jquery.Jcrop.min.js"></script>
+   <script src="js/Base64.js"></script>
+   <script src="js/moment.min.js"></script>
+   <script src="js/mod_info.js"></script>
    <!-- InstanceEndEditable -->
 </head>
 
@@ -44,48 +48,55 @@
     </header>
 	<script>setSelectPage();</script>
    <!-- InstanceBeginEditable name="edit_main" -->
-	
-	<div class="top-bg"></div>
-    <div id="content">
-        <section id="uc_top">
-		   <div id="user_info_area" class="uc-top-wrap">
-			   <div class="uc-content clearfix">
-				   <img id="top_tx" class="top-head"/>
-				   <div class="user-data">
-					   <h2 id="top_name" class="top-uname"></h2>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_follow" class="data-num"></h3>
-						  <h3 class="data-text">关注</h3>
-					   </div>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_fans" class="data-num"></h3>
-						  <h3 class="data-text">粉丝</h3>
-					   </div>
-					   <div class="data-wrap clearfix">
-						  <h3 id="top_views" class="data-num"></h3>
-						  <h3 class="data-text">访问量</h3>
-					   </div>
-				   </div>   	   	   	   
-			   </div>  
+   <div class="top-bg"></div>
+
+	<div id="content">
+ 	   <div id="register_wrap">
+		   <header id="reg_header" style="width: 500px;">
+			   <i class="reg-logo"></i>
+			   <b class="reg-text">修改资料</b>
+		   </header>
+		   
+		   <div id="reg_noti_msg"></div>
+		   
+		   <form id="reg_form" autocomplete="off">
+			  <input id="ipt_email" name="email" type="text" class="ipt-txt" data-myid="email" data-msg="请输入新的邮箱地址，可做为您的登录账号" data-errmsg="请输入正确的邮箱地址" placeholder="新的邮箱"/>
+			 
+			  <input id="ipt_phone" name="mobile" class="ipt-txt" data-myid="phone" type="text" data-msg="请输入新的手机号" data-errmsg="请重新输入手机号码"  placeholder="新的手机号"/>
+		   </form>
+		   
+		   <div id="avatar_upload">
+			  <h2>上传头像</h2>
+			  <i class="reg-notice">点击下方图片上传图片</i> 
+		      <div id="avatar">
+ 	   	  	       <img id="avatar_img" src="images/default_avatar.png">
+  	   	      </div>
+			  <input id="avatar_select" type="file" accept="image/gif,image/png,image/jpeg,image/bmp">
+		      <input id="nickname" name="nickname" type="text" class="ipt-txt ipt-nickname" data-myid="nickname" data-msg="请输入一个昵称，2-15个字符，只接受汉字，字母，数字，下划线，减号" placeholder="用户昵称" data-errmsg="请输入2-15个字符，只接受汉子，字母，数字，下划线，减号"/>
 		   </div>
-        </section>
+		   
+		   <div class="clearfloat"></div>
+		   <input id="ipt_avatar" name="portrait" type="hidden" value="-1" data-errmsg="请上传您的头像"/>
+		   <input id="btn_doreg" onClick="reCkeckForm()" type="button" class="btn-do" value="修改" />
+  		</div>  
+		
+	</div>
+	
+	<!--头像上传弹出层-->
 
-        <section id="uc_main" class="clearfix">
-            <aside id="uc_main_left">
-               <p><a href="usercenter.html?sid=self">个人主页</a></p>
-			   <p class="select"><a href="uc_study.html?sid=self">学习记录</a></p>
-			   <p><a href="uc_read.html?sid=self">我读的书</a></p>
-			   <p><a href="mod_pwd.html">修改密码</a></p>
-			   <p><a href="mod_info.html">修改信息</a></p>
-            </aside>
-            <div id="uc_main_right">
-               <div id="record_area" class="inline-course">
-				   
+    <div id="uppic_wrap" class="clearfix">
+        <header class="up_header clearfix">
+            <span style="float: left;">头像上传<i style="font-style:normal; font-size:12px;">(为保证图像清晰，请尽量使用<b>400x300</b>或<b>300x300</b>尺寸图片,最大3MB)</i></span>
+            <span style="float: right; cursor: pointer;" onclick="$.closePopLayer();">关闭</span>
+        </header>
+        <div id="pop_img_wrap">
+            <img id="cropbox" />
+        </div>
 
-               </div>
-			</div>
-        </section>
-
+        <div class="img-prev-wrap">
+            <canvas id="avatat_prev" width="200" height="200"></canvas>
+            <div id="btn_save">保存头像</div>
+        </div>
 
     </div>
 	
@@ -96,7 +107,17 @@
 	
 	
 	
-    <!-- InstanceEndEditable -->
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- InstanceEndEditable -->
 	
 	
 	

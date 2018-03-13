@@ -1,7 +1,7 @@
 // JavaScript Document
 
 
-APIurl="http://47.93.84.249:30000/";
+//APIurl="http://47.93.84.249:30000/";
 
 
 $(function(){

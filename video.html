@@ -13,6 +13,8 @@
    <link rel="stylesheet" type="text/css" href="css/uiren.css" />
    <!-- InstanceBeginEditable name="head" -->
    <link rel="stylesheet" type="text/css" href="css/video.css">
+   <script src="js/jquery.poplayer.js"></script>
+   <script src="js/jquery.qrcode.min.js"></script>
    <script src="js/video.js"></script>
    <!-- InstanceEndEditable -->
 </head>
@@ -46,11 +48,7 @@
    <!-- InstanceBeginEditable name="edit_main" -->
 	<div id="content"> 
 	   <section class="video-warp">
-
-<!--		   <embed id="play_video" quality="high" allowfullscreen="true" type="application/x-shockwave-flash" src="" flashvars="aid=20062499&page=1" pluginspage="//www.adobe.com/shockwave/download/download.cgi?P1_Prod_Version=ShockwaveFlash"></embed>-->
-			
-		  <!-- <iframe id="play_video" frameborder="0" src="" allowfullscreen></iframe>-->
-		  
+	  
 	   </section>
    
   	   <section id="video_main" class="clearfix">
@@ -110,6 +108,21 @@
    
    
 
+	</div>
+	
+	
+	
+	<div id="pay_wrap">
+	   <h2 class="pay_title">这个视频需要付费，请扫码：）</h2>
+	   <div id="qr_code">
+		  
+	   </div>
+	   <div id="pay_buttons">
+		  <a id="btn_paid" href="#" class="btn_paid">已付完款</a>
+		  <button id="btn_cancel" class="btn_paid" onClick="$.closePopLayer()" style="background-color: #6c5bf8;">取消</button>
+	   </div>
+	
+	
 	</div>
 	
 	

@@ -14,7 +14,7 @@ body{
 }
 
 #content {
-	position: relative; padding-bottom: 20px;
+	
 }
 
 
@@ -49,10 +49,9 @@ body{
 }
 
 #right_content {
-	position: absolute;
 	width: 925px;
 	background-color: #fff;
-	left: 275px;
+	margin-left: 275px;
 	height: 100%;
 }
 

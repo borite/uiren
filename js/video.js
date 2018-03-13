@@ -60,10 +60,42 @@ $(function(){
 //绑定视频作者信息
 function bindVideoInfo(vid){
 	$.get(APIurl+"lesson/lessonDetail",{ lessonId:vid,token:uToken }).done(function(res){
-		console.log(res);
 		if(res.code==200){
 			$("#class_intr").text(res.data.lessonDesc);
 			document.title=res.data.name;
+			
+			if(res.data.price>0 && res.data.buyTag==0){
+				$.post(APIurl+"order/unifiedorder",{token:uToken,productId:videoID,orderType:"lesson",payMethod:"wx_web_scan_code"}).done(function(res){
+					console.log(res);
+					if(res.code==200){
+						$.showPopLayer({
+							target: "pay_wrap",
+							screenLock: true,
+							screenLockBackground: "#000",
+							screenLockOpacity: "0.5",
+							fixedPosition: true,
+							onPop: function () {
+								var c_url=window.location.href;
+								$("#qr_code").qrcode({width:256,height:256,text:res.data.codeUrl});
+								$("#btn_paid").attr('href',c_url);
+							},
+							animate: true	
+						})
+					}
+				})
+			}else{
+				var videoURL=res.data.videos[0].url;
+				if(videoURL!=""){
+					var player='<iframe id="play_video" frameborder="0" src="" allowfullscreen></iframe>'
+					if(videoURL.indexOf("http://system.video.uiren.net/")!=-1){
+						player='<video id="play_video" src="" autoplay controls controlsList="nodownload foobar"></video>'
+					}
+					$("#content .video-warp").append(player);
+
+					$("#play_video").attr('src', videoURL);
+			   }
+			}
+			
 			if(res.data.buyTag==0){
 				$("#video_right_part .btn-price").text(formatPrice(res.data.price));
 			}else{
@@ -73,19 +105,6 @@ function bindVideoInfo(vid){
 			$("#auth_intr").text(res.data.authorIntroduction);  //绑定视频作者介绍
 			$("#auth_avatar").attr('src',res.data.authorHeadPortrait); //绑定作者头像
 			//$("#play_video").attr('poster',res.data.cover);  //绑定视频封面
-			
-			var videoURL=res.data.videos[0].url;
-			
-			if(videoURL!=""){
-				var player='<iframe id="play_video" frameborder="0" src="" allowfullscreen></iframe>'
-				if(videoURL.indexOf("http://system.video.uiren.net/")!=-1){
-					//<video id="play_video" controls controlsList="nodownload foobar">
-					player='<video id="play_video" src="" autoplay controls controlsList="nodownload foobar"></video>'
-				}
-				$("#content .video-warp").append(player);
-				
-				$("#play_video").attr('src', videoURL);
-			}
 			
 		}else{
 			alert(res.message);
