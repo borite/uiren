@@ -6,6 +6,7 @@ var pageNo,
 	_totalCount //所有记录数
 
 $(function(){
+	 checkLogin();
 	 $("#video_list img.video-img").lazyload({ 
                 effect : "fadeIn",
 		        placeholder : "images/bg_gray.gif"

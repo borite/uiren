@@ -5,6 +5,7 @@
 
 
 $(function(){
+	checkLogin();
 	getArticleTypes();
  
     

@@ -89,15 +89,6 @@ function getToken(){
 }
 
 //将时间戳转换为指定格式的时间字符串
-function formatDate(nS) {  
-	   var newDate = new Date();  
-	   newDate.setTime(parseInt(nS));  
-	   //console.log(newDate.toLocaleString()); // 2014年6月18日 上午10:33:24    
-	   var theDate = newDate.getFullYear()+"年"+(newDate.getMonth()+1)+"月"+newDate.getDay()+"日  "+newDate.getHours()+":"+newDate.getMinutes();
-       return theDate;
-}  
-
-
 function formatDateTime(inputTime) {    
     var date = new Date(inputTime);  
     var y = date.getFullYear();    
@@ -201,7 +192,7 @@ function getPrivateLetter(userToken){
 				$("#msg").css("background-image","url(images/ring1.png)");
 				
 			}else{
-				$("#msg").css("background-image","url(images/ring1.png)");
+				$("#msg").css("background-image","url(images/ring.png)");
 			}
 		}else{
 			alert(res.message);

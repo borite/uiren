@@ -63,7 +63,7 @@ function bindVideoInfo(vid){
 		if(res.code==200){
 			$("#class_intr").text(res.data.lessonDesc);
 			document.title=res.data.name;
-			
+			var class_price=res.data.price;
 			if(res.data.price>0 && res.data.buyTag==0){
 				$.post(APIurl+"order/unifiedorder",{token:uToken,productId:videoID,orderType:"lesson",payMethod:"wx_web_scan_code"}).done(function(res){
 					console.log(res);
@@ -78,6 +78,7 @@ function bindVideoInfo(vid){
 								var c_url=window.location.href;
 								$("#qr_code").qrcode({width:256,height:256,text:res.data.codeUrl});
 								$("#btn_paid").attr('href',c_url);
+								$("#p_price").text(class_price+"元");
 							},
 							animate: true	
 						})
@@ -118,7 +119,8 @@ function getVideoComment(vid,pNo){
 	$.get(APIurl+"lesson/comments",{lessonId:vid,pageNo:pNo,PageSize:15}).done(function(res){
 		//console.log(res);
 		if(res.code==200){
-			$("#video_nav li:last-child").text("评论("+res.data.totalCount+")")
+			$("#video_nav li:last-child").text("评论("+res.data.totalCount+")").click();
+			
 			if(res.data.rows.length>0){
 				$.each(res.data.rows,function(i,o){
 					$("#comment_list").append('<div id="comm'+o.commentId+'" class="msg-wrap clearfix">\

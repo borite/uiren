@@ -50,28 +50,33 @@ function BindVideoLesson()
 	$.get(APIurl+"lesson/lessonTypes").done(function(res){
 		//console.log(res.data);
 		$.each(res.data,function(i,o){
-			$("#video_list").append('<section class="video-wrap"><i class="video-type-tit">'+o.name+'</i><div id="vt_'+o.id+'" class="video-list clearfix"></div></section>');
-			$("#video_list i.video-type-tit:even").css('border-left-color','#FF355B');
-			$.get(APIurl+"lesson/lessons",{parentLessonTypeId:o.id,pageSize:8}).done(function(res){
-				if(res.data.rows.length>0){
-					$.each(res.data.rows,function(li,lo){
-						$("#vt_"+o.id).append('<div class="video-item">\
-									  		 <a href="video.html?vid='+lo.id+'">\
- 		          	 							<img class="video-img" src="'+lo.cover+'" width="290" height="180" alt="'+lo.name+'"/>\
-									  		</a>\
-									  		<div class="video-info">\
-	 		       	  							<a href="video.html?vid='+lo.id+'" class="video-title">'+lo.name+'</a>\
-									  			<a href="#" class="video-author">'+lo.authorName+'</a>\
-									  			<a href="#" class="video-price">'+formatPrice(lo.price)+'</a>\
-									  		</div>\
-                                         </div>');
-						})
-					
-				}else{
-					$("#vt_"+o.id).parent().remove();
-				}
+			if(i<2){
+				$("#video_list").append('<section class="video-wrap"><i class="video-type-tit">'+o.name+'</i><div id="vt_'+o.id+'" class="video-list clearfix"></div></section>');
+				$("#video_list i.video-type-tit:even").css('border-left-color','#FF355B');
+				$.get(APIurl+"lesson/lessons",{parentLessonTypeId:o.id,pageSize:8}).done(function(res){
+					if(res.data.rows.length>0){
+						$.each(res.data.rows,function(li,lo){
+							$("#vt_"+o.id).append('<div class="video-item">\
+												 <a href="video.html?vid='+lo.id+'">\
+													<img class="video-img" src="'+lo.cover+'" width="290" height="180" alt="'+lo.name+'"/>\
+												</a>\
+												<div class="video-info">\
+													<a href="video.html?vid='+lo.id+'" class="video-title">'+lo.name+'</a>\
+													<a href="#" class="video-author">'+lo.authorName+'</a>\
+													<a href="#" class="video-price">'+formatPrice(lo.price)+'</a>\
+												</div>\
+											 </div>');
+							})
 
-			})
+					}else{
+						$("#vt_"+o.id).parent().remove();
+					}
+
+				})
+			}else{
+				return false;
+			}
+
 		});
 	})
 }

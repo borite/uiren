@@ -1,6 +1,7 @@
 //APIurl="http://47.93.84.249:30000/";
 	   
 	   $(function(){
+		   checkLogin();
 		   getArticleTypes();
 		   
 		   var aid=GetQueryString("aid");	 
