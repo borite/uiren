@@ -3,7 +3,7 @@
 var h5TypeAPI=APIurl+"h5/h5Types";
 
 $(function(){
-	
+	checkLogin();
 	
 	$.get(h5TypeAPI).done(function(res){
 		var typeList=res.data;

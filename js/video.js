@@ -141,7 +141,7 @@ function getVideoComment(vid,pNo){
 					
 				})		
 			}else{
-				$("#comment_list").text('还没有任何评论~');
+				$("#comment_list").html('<img src="../images/nocomments.gif" />');
 				$("#btn_more_comm").hide();
 			}
 		}
