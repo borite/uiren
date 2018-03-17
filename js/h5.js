@@ -1,25 +1,28 @@
 // JavaScript Document
 
 var h5TypeAPI=APIurl+"h5/h5Types";
+var pageNo,totalPage;
+var tID,tName;
+var pageSize=28;//固定每页20条数据
 
 $(function(){
 	checkLogin();
-	
 	$.get(h5TypeAPI).done(function(res){
 		var typeList=res.data;
 		$.each(typeList,function(i,o){
 			$("#nav_bar").append('<li id="'+o.id+'">'+o.name+'<a></a></li>');
-		})
+		});
 		$("#nav_bar > li:first-child").addClass("selected");
 		$("#nav_bar > li").click(function () {
             $("#nav_bar li").removeClass('selected');
             $(this).addClass('selected');
-			var tID=$(this).attr('id');
-			var tName=$(this).text();
+			tID=$(this).attr('id');
+			tName=$(this).text();
 			getH5Products(tID,1,tName);
-        })
-		getH5Products(1,1,res.data[0].name);
+        });
 		
+		$("#nav_bar > li:first-child").click();
+	
 	}).fail(function(){
 		alert("服务器异常，请联系管理员");
 	})
@@ -51,15 +54,28 @@ $(function(){
             })
 	})
 	
+	$("#pagination").whjPaging({
+				css: 'css-2',
+				showPageNum: 8,
+				isShowFL:true,
+				isShowPageSizeOpt: false,
+				isShowRefresh: false,
+				callBack: function (currPage, pageSize) {
+					getH5Products(tID,currPage,tName);
+				}
+	});	
 })
 
 
 //获取H5收集的作品
 function getH5Products(typeID,pageNum,typeName){
 	var h5ProductsAPI=APIurl+"h5/h5s";
-	var pageSize=28;//固定每页20条数据
+	
 	$.get(h5ProductsAPI,{"h5TypeId":typeID,"pageNo":pageNum,"pageSize":pageSize}).done(function(res){
 		if(res.code==200){
+			//console.log(res);
+			pageNo=res.data.pageNo,
+			totalPage=res.data.totalPage;
 			$("#content-class").empty();
 			var rows=res.data.rows;
 			$.each(rows,function(i,o){
@@ -79,7 +95,13 @@ function getH5Products(typeID,pageNum,typeName){
                     									</div>\
 									   				</div>\
 									   		</div>');
-			})
+			});
+			if(totalPage==1){
+				$("#pagination").hide();
+			}else{
+				$("#pagination").show();
+			}
+			$("#pagination").whjPaging("setPage", pageNo, totalPage);
 			
 		}else{
 			alert(res.message);

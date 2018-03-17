@@ -85,7 +85,7 @@ function getConversations(){
 		if(res.code==200){
 			console.log(res.data.rows);
 			if(res.data.rows.length==0){
-				alert("你还没有任何私信");
+				
 			}else
 			{
 				//绑定私信列表
