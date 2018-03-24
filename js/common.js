@@ -109,6 +109,9 @@ function formatDateTime(inputTime) {
 
 //计算距离多久之前
 function getDateDiff(dateTimeStamp){
+	if(dateTimeStamp==null||dateTimeStamp==""){
+		return "";
+	}
 	var minute = 1000 * 60;
 	var hour = minute * 60;
 	var day = hour * 24;
