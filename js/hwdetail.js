@@ -218,7 +218,7 @@ function getComments(hwid,pNo){
 				});
 				
 			}else{  //没有评论
-				$("#comment_list").append('<li>还没有任何评论</li>');
+				$("#comment_list").append('<li><img src="../images/nocomments.gif"/></li>');
 			}
 		}else{  //请求失败
 			alert("服务器错误，请联系管理员！");

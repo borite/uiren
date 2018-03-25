@@ -25,7 +25,7 @@ function BindRollImgs(i_type){
 			
 			//向页面中插入图片
 			for(i=0;i<imgs.length;i++){
-				$("#slider").append('<a href="'+imgs[i].linkUrl+'"><img src="'+imgs[i].picUrl+'" width="1200" height="350" alt=""/></a>');
+				$("#slider").append('<a target="_blank" href="'+imgs[i].linkUrl+'"><img src="'+imgs[i].picUrl+'" width="1200" height="350" alt=""/></a>');
 			}
 			
 			//给图片设置切换效果

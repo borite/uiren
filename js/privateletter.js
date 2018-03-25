@@ -4,6 +4,8 @@ var uToken;  //用户token
 
 var toUserID="-1";  //要发送给某个用户的ID
 
+var currentConv=-1;  //当前选中的会话
+
 //用户左边的私信对话列表
 var leftConvBlock='<li id="n" data-cid="-1" class="list-item">\
 					<i class="read-tag"></i>\
@@ -66,6 +68,21 @@ $(function(){
 		
 	});
 	
+	//删除私信
+	$("#conv_list").on('click','img.btn-del-letter',function(){
+		//console.log($(this).attr('data-id'));
+		var letterID=$(this).attr('data-id');
+		$.post(APIurl+"/privateLetter/delete",{token:uToken,privateLetterId:letterID}).done(function(res){
+			if(res.code==200){
+				getLetterConv(currentConv);		
+			}
+			else{
+				console.log(res);
+				alert("出错了，请联系管理员");
+			}
+		})
+	})
+	
 	
 	$("#btn_send").click(function(){
 		if(toUserID=="-1"){
@@ -81,11 +98,10 @@ $(function(){
 //获取左边私信列表
 function getConversations(){
 	$.get(APIurl+"privateLetter/conversations",{token:uToken}).done(function(res){
-		//console.log(res);
 		if(res.code==200){
-			console.log(res.data.rows);
+			//console.log(res.data.rows);
 			if(res.data.rows.length==0){
-				alert("你还没有任何私信");
+				
 			}else
 			{
 				//绑定私信列表
@@ -100,7 +116,6 @@ function getConversations(){
 					}
 					
 				});
-				
 				
 				var action=GetQueryString("action");
 				//如果是发送私信，从作业细节页面跳转过来
@@ -122,12 +137,7 @@ function getConversations(){
 		
 				}
 					
-					$("#list_pl > li:first-child").addClass('list-item-select').click();
-				
-				
-				//getLetterConv(toUserID);
-				
-			
+				$("#list_pl > li:first-child").addClass('list-item-select').click();
 			}
 		}else{
 			alert("出错了！"+res.message);
@@ -163,18 +173,23 @@ function sendLetter(toUID){
 //获取私信内容，cid为
 function getLetterConv(obj){
 	var cid=obj.attr('data-cid');
-	
-	//alert(cid);
+	currentConv=obj;
 			$.get(APIurl+'privateLetter/privateLetters',{token:uToken,conversationId:cid}).done(function(res){
-				console.log(res);
+				//console.log(res);
 				if(res.code==200){
 					$("#conv_list").empty();
+					if(res.data.rows.length==0){
+						obj.find('i.send-time').text('').end().find('div.letter-summ').text('');
+						return false;
+					}
+					
 					$.each(res.data.rows,function(i,o){
 							$("#conv_list").append(rightConvList);
 							$("#conv_list > li:last-child").find('img.conv-avatar').attr('src',o.sendHeadPortrait)
 							 .end().find('h2.name').text(o.sendUserName)
 							 .end().find('i.send-time').text(getDateDiff(o.createTime))
-							 .end().find('div.conv-content').text(o.content);
+							 .end().find('div.conv-content').text(o.content)
+						     .end().find('img.btn-del-letter').attr('data-id',o.letterId);
 							if(o.sysInfo!=null){
 							    var a=JSON.parse(o.sysInfo);
 								var t=o.content;

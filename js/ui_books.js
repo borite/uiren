@@ -23,12 +23,20 @@ function GetBooks(){
 				   $.each(res.data,function(i,v,a){
 					   book_list_html="";
 					   $("#content").append('<section><i class="green-title">'+v.typeName+'</i><div class="books-wrap"></div<section>');
-					   $.each(v.books,function(i,v,a){
+					   $.each(v.books,function(oi,ov,a){
+						   var imgUrl;
+						   if(ov.readTag==0){
+							   imgUrl="images/no_see.png";
+						   }else{
+							   imgUrl="images/saw.png";
+						   }
 						   book_list_html+='<div class="books-cell">\
-						   						<a href="'+v.buyUrl+'" target="_blank" class="book-pic"><img src="'+v.coverUrl+'" height="180" width="141" /></a>\
-						   						<a href="'+v.buyUrl+'" target="_blank" class="book-name">'+v.bookName+'</a>\
-						   						<img id="'+v.id+'" class="read-noti" data-read="'+v.readTag+'" onClick="readBook('+v.id+')" src="images/no_see.png" />\
-	   										</div>'
+						   						<a href="'+ov.buyUrl+'" target="_blank" class="book-pic"><img src="'+ov.coverUrl+'" height="180" width="141" /></a>\
+						   						<a href="'+ov.buyUrl+'" target="_blank" class="book-name">'+ov.bookName+'</a>\
+						   						<img id="'+ov.id+'" class="read-noti" data-read="'+ov.readTag+'" onClick="readBook('+ov.id+')" src="'+imgUrl+'" />\
+	   										</div>';
+						   
+						   
 					   })
 					   $("#content > section:last-child > div.books-wrap").append(book_list_html);
 				   });

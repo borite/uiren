@@ -174,3 +174,12 @@
     right:200px;
     top:390px;
 }
+.close_pop {
+	position: absolute;
+	right: 200px;
+	top: 580px;
+	width: 170px;
+	text-align: center;
+	cursor: pointer;
+	
+}
