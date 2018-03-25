@@ -26,7 +26,6 @@ function doLogin(uname,upwd){
 	$.post(url,{loginName:uname,pwd:upwd}).done(function(res){
 		if(res.code=="200"){
 			localStorage.setItem("uirenToken", res.data.token);  //设置存储token
-		    alert("登录成功");
 			self.location='default.html'; 
 			
 		}else{
