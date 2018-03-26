@@ -61,6 +61,7 @@ $(function(){
 function bindVideoInfo(vid){
 	$.get(APIurl+"lesson/lessonDetail",{ lessonId:vid,token:uToken }).done(function(res){
 		if(res.code==200){
+			console.log(res);
 			$("#class_intr").text(res.data.lessonDesc);
 			document.title=res.data.name;
 			var class_price=res.data.price;

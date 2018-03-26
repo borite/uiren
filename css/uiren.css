@@ -9,6 +9,11 @@ body,textarea,h2
     font-size:14px;
 }
 
+.clearboth{
+	clear: both;
+	height: 0px;
+	overflow: hidden;
+}
 
 .clearfix:after{
 	clear: both; height: 0px; visibility: hidden;display: block; content: " ";

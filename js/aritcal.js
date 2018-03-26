@@ -3,10 +3,25 @@
 
 //APIurl="http://47.93.84.249:30000/";
 
+var pageNo,
+	_psize=9,  //默认每页记录条数
+	totalPage,
+	_totalCount //所有记录数
 
 $(function(){
 	checkLogin();
 	getArticleTypes();
+	$("#pagination").whjPaging({
+		css: 'css-2',
+		showPageNum: 8,
+		isShowFL:true,
+		isShowPageSizeOpt: false,
+		isShowRefresh: false,
+		callBack: function (currPage, pageSize) {
+			getArticleByTypeID(currPage);
+		}
+	});	
+	   
  
     
 })
@@ -17,9 +32,7 @@ function getArticleTypes(){
 	var listItemHtml="<li><a></a></li> "
 
 	$.get(APIurl+"article/articleTypes").done(function(res){
-	 
 		if(res.code==200){
-			
 			$("#artical_list").empty();
 			if(res.data.length==0){
 				alert("还没有文章信息");
@@ -39,7 +52,7 @@ function getArticleTypes(){
 }
 
 //通过文章类型ID获取文章 
-function getArticleByTypeID(){
+function getArticleByTypeID(pNum){
 	var typeID=GetQueryString('typeid');
 	if(typeID=="" && $("#artical_list > li").length > 0){
 		typeID=$("#artical_list > li:first-child").data('tid');
@@ -52,9 +65,10 @@ function getArticleByTypeID(){
 			 <div class="block-bottom">\两天前 </div>\
 		   </div>'
 	
-	$.get(APIurl+"article/articles",{articleTypeId:typeID,pageNo:1,pageSize:30}).done(function(res){
-		
+	$.get(APIurl+"article/articles",{articleTypeId:typeID,pageNo:pNum,pageSize:_psize}).done(function(res){
+		console.log(res);
 		if(res.code==200){
+			$("#pagination").appendTo("#content");
 			$("#right_content").empty();
 			if(res.data.rows.length==0){
 				alert("该分类下还没有文章");
@@ -66,8 +80,18 @@ function getArticleByTypeID(){
 						.end().find('a.arti-title').attr('href','article.html?aid='+o.id).text(o.title)
 						.end().find('a.arti-auth').attr('href','usercenter.html?sid='+o.userId).text(o.userName)
 					    .end().find('div.block-bottom').text(getDateDiff(o.createTime));
-				})
-			}
+				});
+				    
+					pageNo=res.data.pageNo;
+					totalPage=res.data.totalPage;
+					_totalCount=res.data.totalCount;
+					if(totalPage==1){
+						totalPage=0;
+					}
+				
+				    $("#right_content").append('<div class="clearboth"></div>');
+					$("#pagination").appendTo("#right_content").whjPaging("setPage", pageNo, totalPage);
+				}
 			
 		}else{
 			alert("出错了~~~"+res.message);

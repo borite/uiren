@@ -32,8 +32,6 @@ $(function(){
 				isShowPageSizeOpt: false,
 				isShowRefresh: false,
 				callBack: function (currPage, pageSize) {
-                	//console.log('currPage:' + currPage + '     pageSize:' + pageSize);
-					//getStudyList("",currPage,)
 					getStudyList("",currPage,_psize);
 				}
 			});	
